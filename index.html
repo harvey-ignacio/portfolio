@@ -1,316 +1,3056 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Harvey John Ignacio - Shopify & WordPress Developer with 6+ years of experience building e-commerce stores">
-    <title>Harvey John Ignacio | Shopify Developer</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- Logo -->
-    <div class="logo-bar">
-        <div class="container">
-            <div class="logo">
-                <span class="logo-icon">HJ</span>
-                <span class="logo-text">Harvey Ignacio</span>
-            </div>
-        </div>
-    </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Harvey Ignacio — Web Developer & Designer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=League+Spartan:wght@100..900&display=swap"
+      rel="stylesheet" />
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-grid">
-                <div class="hero-text">
-                    <h1 class="name">Harvey John Ignacio</h1>
-                    <p class="title">Shopify & WordPress Developer</p>
-                    <p class="tagline">Building high-performing e-commerce stores for US, European, and Australian brands</p>
-                    <div class="hero-links">
-                        <a href="mailto:ignacio.harveyjohn@gmail.com" class="btn btn-primary">Get In Touch</a>
-                        <a href="https://linkedin.com/in/ignacioharveyj" target="_blank" rel="noopener" class="btn btn-secondary">LinkedIn</a>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <!-- Free vector illustration from undraw.co -->
-                    <img src="https://illustrations.popsy.co/amber/web-developer.svg" alt="Developer illustration" class="illustration">
-                </div>
-            </div>
+    <style>
+      /* ═══════════════════════════════════════════
+       TOKENS
+    ═══════════════════════════════════════════ */
+      :root {
+        --white: #ffffff;
+        --off-white: #f8f6f2;
+        --sand: #ede8df;
+        --stone: #d5cebd;
+        --bark: #8c7e6a;
+        --ink: #1a1814;
+        --ink-soft: #4a4540;
+        --accent: #2a5c3f;
+        --accent-lt: #3a7a55;
+        --cta: #d4541a;
+        --cta-hover: #b84018;
+        --dark-bg: #0f0e0c;
+        --dark-section: #0f1d14;
+      }
+
+      /* ═══════════════════════════════════════════
+       RESET
+    ═══════════════════════════════════════════ */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "League Spartan", sans-serif;
+        background: var(--white);
+        color: var(--ink);
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      /* ═══════════════════════════════════════════
+       TYPOGRAPHY SCALE — DESKTOP (≥ 1024px)
+       Using specific px values per device, not clamp
+    ═══════════════════════════════════════════ */
+
+      /* Section label */
+      .section-label {
+        font-family: "League Spartan", sans-serif;
+        font-weight: 700;
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--bark);
+      }
+      .section-label--light {
+        color: rgba(255, 255, 255, 0.4);
+      }
+
+      /* Hero heading */
+      .hero-heading {
+        font-family: "Archivo Black", sans-serif;
+        font-weight: 400;
+        font-size: 72px;
+        line-height: 1.02;
+        letter-spacing: -0.03em;
+        color: #fff;
+      }
+      .hero-heading .outline-word {
+        color: transparent;
+        -webkit-text-stroke: 2px rgba(255, 255, 255, 0.55);
+      }
+
+      /* Hero sub */
+      .hero-sub {
+        font-family: "League Spartan", sans-serif;
+        font-size: 18px;
+        font-weight: 300;
+        line-height: 1.75;
+        color: rgba(255, 255, 255, 0.65);
+      }
+
+      /* Section heading (H2) */
+      .sec-heading {
+        font-family: "Archivo Black", sans-serif;
+        font-weight: 400;
+        font-size: 42px;
+        letter-spacing: -0.025em;
+        line-height: 1.08;
+      }
+
+      /* Card heading (H3) */
+      .card-heading {
+        font-family: "Archivo Black", sans-serif;
+        font-weight: 400;
+        font-size: 17px;
+        letter-spacing: -0.01em;
+      }
+
+      /* Body text */
+      .body-text {
+        font-family: "League Spartan", sans-serif;
+        font-size: 17px;
+        font-weight: 300;
+        line-height: 1.75;
+        color: var(--ink-soft);
+      }
+
+      /* Small text */
+      .small-text {
+        font-family: "League Spartan", sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--ink-soft);
+      }
+
+      /* Caption / tag text */
+      .caption-text {
+        font-family: "League Spartan", sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      /* Stats number */
+      .stat-number {
+        font-family: "Archivo Black", sans-serif;
+        font-size: 42px;
+        letter-spacing: -0.03em;
+        color: #fff;
+        line-height: 1;
+      }
+
+      /* Experience role title */
+      .exp-role {
+        font-family: "Archivo Black", sans-serif;
+        font-size: 17px;
+        letter-spacing: -0.01em;
+      }
+
+      /* Project card name */
+      .proj-name {
+        font-family: "Archivo Black", sans-serif;
+        font-size: 18px;
+        letter-spacing: -0.01em;
+        color: var(--ink);
+        margin-top: 6px;
+      }
+
+      /* Testimonial quote */
+      .tquote-text {
+        font-family: "League Spartan", sans-serif;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 1.72;
+        color: rgba(255, 255, 255, 0.78);
+      }
+
+      /* ═══════════════════════════════════════════
+       TYPOGRAPHY SCALE — MOBILE (≤ 767px)
+    ═══════════════════════════════════════════ */
+      @media (max-width: 767px) {
+        .section-label {
+          font-size: 10px;
+        }
+        .hero-heading {
+          font-size: 36px;
+        }
+        .hero-sub {
+          font-size: 15px;
+        }
+        .sec-heading {
+          font-size: 28px;
+        }
+        .card-heading {
+          font-size: 15px;
+        }
+        .body-text {
+          font-size: 15px;
+        }
+        .small-text {
+          font-size: 13px;
+        }
+        .caption-text {
+          font-size: 10px;
+        }
+        .stat-number {
+          font-size: 30px;
+        }
+        .exp-role {
+          font-size: 15px;
+        }
+        .proj-name {
+          font-size: 16px;
+        }
+        .tquote-text {
+          font-size: 15px;
+        }
+      }
+
+      .tech-pill {
+        display: flex;
+        align-items: center;
+      }
+
+      .tech-pill svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      /* ═══════════════════════════════════════════
+       TABLET (768px – 1023px)
+    ═══════════════════════════════════════════ */
+      @media (min-width: 768px) and (max-width: 1023px) {
+        .hero-heading {
+          font-size: 52px;
+        }
+        .sec-heading {
+          font-size: 34px;
+        }
+        .stat-number {
+          font-size: 36px;
+        }
+      }
+
+      /* ═══════════════════════════════════════════
+       ANIMATIONS
+    ═══════════════════════════════════════════ */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(32px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes pulseDot {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.45;
+          transform: scale(0.8);
+        }
+      }
+
+      .fu {
+        opacity: 0;
+        animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      }
+      .d1 {
+        animation-delay: 0.12s;
+      }
+      .d2 {
+        animation-delay: 0.27s;
+      }
+      .d3 {
+        animation-delay: 0.42s;
+      }
+      .d4 {
+        animation-delay: 0.57s;
+      }
+      .d5 {
+        animation-delay: 0.72s;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(26px);
+        transition:
+          opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+          transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .reveal.on {
+        opacity: 1;
+        transform: none;
+      }
+      .rd1 {
+        transition-delay: 0.08s;
+      }
+      .rd2 {
+        transition-delay: 0.17s;
+      }
+      .rd3 {
+        transition-delay: 0.26s;
+      }
+
+      /* ═══════════════════════════════════════════
+       NAV
+    ═══════════════════════════════════════════ */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 200;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 40px;
+        transition:
+          background 0.35s,
+          box-shadow 0.35s;
+      }
+      .navbar.stuck {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(16px);
+        box-shadow: 0 1px 0 var(--sand);
+      }
+
+      .nav-logo {
+        font-family: "Archivo Black", sans-serif;
+        font-size: 17px;
+        color: #fff;
+        text-decoration: none;
+        letter-spacing: -0.01em;
+        transition: color 0.3s;
+      }
+      .navbar.stuck .nav-logo {
+        color: var(--ink);
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+      }
+      .nav-link {
+        font-family: "League Spartan", sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        color: rgba(255, 255, 255, 0.78);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .nav-link:hover {
+        color: #fff;
+      }
+      .navbar.stuck .nav-link {
+        color: var(--ink-soft);
+      }
+      .navbar.stuck .nav-link:hover {
+        color: var(--accent);
+      }
+
+      .nav-cta-btn {
+        font-family: "League Spartan", sans-serif;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-decoration: none;
+        padding: 9px 20px;
+        border-radius: 6px;
+        background: var(--cta);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .nav-cta-btn:hover {
+        background: var(--cta-hover);
+      }
+
+      .burger-btn {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: 4px;
+        background: none;
+        border: none;
+      }
+      .burger-btn span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: #fff;
+        border-radius: 2px;
+        transition: background 0.3s;
+      }
+      .navbar.stuck .burger-btn span {
+        background: var(--ink);
+      }
+
+      @media (max-width: 767px) {
+        .navbar {
+          padding: 16px 20px;
+        }
+        .nav-links {
+          display: none;
+        }
+        .burger-btn {
+          display: flex;
+        }
+        .nav-links.open {
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background: var(--white);
+          padding: 24px 20px;
+          gap: 20px;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        .nav-links.open .nav-link {
+          color: var(--ink-soft);
+          font-size: 16px;
+        }
+      }
+
+      /* ═══════════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════════ */
+      .hero-section {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+      }
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(
+            160deg,
+            rgba(10, 9, 8, 0.5) 0%,
+            rgba(10, 9, 8, 0.78) 55%,
+            rgba(10, 9, 8, 0.95) 100%
+          ),
+          url("https://images.unsplash.com/photo-1547658719-da2b51169166?w=1800&auto=format&fit=crop&q=80")
+            center/cover no-repeat;
+      }
+      .hero-bg::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+          linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px
+          );
+        background-size: 64px 64px;
+      }
+      .hero-inner {
+        position: relative;
+        z-index: 2;
+        max-width: 900px;
+        padding: 144px 40px 80px;
+      }
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 100px;
+        padding: 6px 16px;
+        font-family: "League Spartan", sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.65);
+        margin-bottom: 28px;
+      }
+      .dot-live {
+        width: 7px;
+        height: 7px;
+        background: #4ade80;
+        border-radius: 50%;
+        animation: pulseDot 2s ease-in-out infinite;
+      }
+      .hero-scroll-hint {
+        position: absolute;
+        bottom: 36px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+      }
+      .hero-scroll-text {
+        font-family: "League Spartan", sans-serif;
+        font-size: 10px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.4);
+        font-weight: 700;
+      }
+      .hero-scroll-line {
+        width: 1px;
+        height: 38px;
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.4),
+          transparent
+        );
+      }
+
+      @media (max-width: 767px) {
+        .hero-inner {
+          padding: 120px 20px 64px;
+        }
+        .hero-badge {
+          font-size: 10px;
+        }
+      }
+
+      /* ═══════════════════════════════════════════
+       BUTTONS
+    ═══════════════════════════════════════════ */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: "League Spartan", sans-serif;
+        font-weight: 700;
+        font-size: 15px;
+        letter-spacing: 0.04em;
+        padding: 14px 28px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        transition:
+          transform 0.15s,
+          box-shadow 0.2s,
+          background 0.2s,
+          border-color 0.2s;
+      }
+      .btn:active {
+        transform: scale(0.98);
+      }
+
+      .btn-cta {
+        background: var(--cta);
+        color: #fff;
+        box-shadow: 0 4px 18px rgba(212, 84, 26, 0.38);
+      }
+      .btn-cta:hover {
+        background: var(--cta-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 28px rgba(212, 84, 26, 0.42);
+      }
+
+      .btn-ghost {
+        background: rgba(255, 255, 255, 0.09);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(6px);
+      }
+      .btn-ghost:hover {
+        background: rgba(255, 255, 255, 0.16);
+        border-color: rgba(255, 255, 255, 0.35);
+      }
+
+      .btn-green {
+        background: var(--accent);
+        color: #fff;
+        box-shadow: 0 4px 16px rgba(42, 92, 63, 0.32);
+      }
+      .btn-green:hover {
+        background: var(--accent-lt);
+        transform: translateY(-2px);
+      }
+
+      .btn-outline-dark {
+        background: transparent;
+        color: var(--ink);
+        border: 2px solid var(--stone);
+      }
+      .btn-outline-dark:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+
+      .btn-form {
+        background: var(--cta);
+        color: #fff;
+        box-shadow: 0 4px 18px rgba(212, 84, 26, 0.38);
+        width: 100%;
+        justify-content: center;
+        font-size: 15px;
+        padding: 16px;
+      }
+      .btn-form:hover {
+        background: var(--cta-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 28px rgba(212, 84, 26, 0.42);
+      }
+      .btn-form:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      @media (max-width: 767px) {
+        .btn {
+          font-size: 14px;
+          padding: 12px 22px;
+        }
+      }
+
+      /* ═══════════════════════════════════════════
+       LAYOUT
+    ═══════════════════════════════════════════ */
+      .sec {
+        padding: 88px 40px;
+      }
+      .sec-sm {
+        padding: 64px 40px;
+      }
+      .wrap {
+        max-width: 1040px;
+        margin: 0 auto;
+      }
+      .wrap-lg {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .divider {
+        border: none;
+        border-top: 1px solid var(--sand);
+      }
+
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 64px;
+      }
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+        gap: 20px;
+      }
+      .grid-3p {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 22px;
+      }
+      .grid-4 {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 20px;
+      }
+
+      @media (max-width: 767px) {
+        .sec {
+          padding: 64px 20px;
+        }
+        .sec-sm {
+          padding: 48px 20px;
+        }
+        .grid-2 {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+      }
+
+      /* ═══════════════════════════════════════════
+       STATS BAR
+    ═══════════════════════════════════════════ */
+      .stats-bar {
+        background: var(--accent);
+        padding: 48px 40px;
+      }
+      .stats-grid {
+        max-width: 1040px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 32px;
+        text-align: center;
+      }
+      .stat-label-text {
+        font-family: "League Spartan", sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.55);
+        margin-top: 6px;
+      }
+      @media (max-width: 767px) {
+        .stats-bar {
+          padding: 40px 20px;
+        }
+        .stat-label-text {
+          font-size: 10px;
+        }
+      }
+
+      /* ═══════════════════════════════════════════
+       ABOUT SECTION
+    ═══════════════════════════════════════════ */
+      .about-section {
+        background: var(--off-white);
+      }
+
+      /* Profile card — modern inspired by reference */
+      .profile-card {
+        background: var(--white);
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 2px 40px rgba(26, 24, 20, 0.08);
+        border: 1px solid var(--sand);
+      }
+      .profile-card-img-wrap {
+        width: 100%;
+        height: 260px;
+        overflow: hidden;
+        position: relative;
+        background: linear-gradient(135deg, #c8d8c4 0%, #a8c0a2 100%);
+      }
+      .profile-card-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
+      }
+      .profile-card-img-placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, var(--accent) 0%, #6aaf87 100%);
+        font-family: "Archivo Black", sans-serif;
+        font-size: 56px;
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .profile-card-body {
+        padding: 24px;
+      }
+      .profile-card-name {
+        font-family: "Archivo Black", sans-serif;
+        font-size: 20px;
+        letter-spacing: -0.01em;
+        color: var(--ink);
+      }
+      .profile-card-role {
+        font-family: "League Spartan", sans-serif;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--bark);
+        margin-top: 2px;
+      }
+      .profile-card-status {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 6px;
+      }
+      .status-dot {
+        width: 7px;
+        height: 7px;
+        background: #4ade80;
+        border-radius: 50%;
+      }
+      .status-text {
+        font-family: "League Spartan", sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--bark);
+      }
+      .profile-card-divider {
+        border: none;
+        border-top: 1px solid var(--sand);
+        margin: 16px 0;
+      }
+      .profile-detail-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+      .profile-detail-item:last-child {
+        margin-bottom: 0;
+      }
+      .profile-detail-icon {
+        font-size: 16px;
+        min-width: 20px;
+      }
+      .profile-detail-text {
+        font-family: "League Spartan", sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--ink-soft);
+      }
+      .profile-detail-item svg {
+        width: 20px;
+        height: 20px;
+      }
+      @media (max-width: 767px) {
+        .profile-card-img-wrap {
+          height: 220px;
+        }
+        .profile-card-name {
+          font-size: 18px;
+        }
+      }
+
+      /* ═══════════════════════════════════════════
+       SERVICE CARDS
+    ═══════════════════════════════════════════ */
+      .svc-card {
+        background: var(--white);
+        border: 1px solid var(--sand);
+        border-radius: 14px;
+        padding: 30px;
+        transition:
+          border-color 0.25s,
+          box-shadow 0.25s,
+          transform 0.25s;
+      }
+      .svc-card:hover {
+        border-color: var(--accent);
+        box-shadow: 0 8px 36px rgba(42, 92, 63, 0.1);
+        transform: translateY(-3px);
+      }
+      .svc-icon {
+        width: 46px;
+        height: 46px;
+        border-radius: 10px;
+        background: var(--off-white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        margin-bottom: 18px;
+      }
+      .svc-title {
+        font-family: "Archivo Black", sans-serif;
+        font-size: 17px;
+        letter-spacing: -0.01em;
+        margin-bottom: 10px;
+      }
+      .svc-body {
+        font-family: "League Spartan", sans-serif;
+        font-size: 15px;
+        color: var(--ink-soft);
+        font-weight: 300;
+        line-height: 1.65;
+      }
+      @media (max-width: 767px) {
+        .svc-card {
+          padding: 24px;
+        }
+        .svc-title {
+          font-size: 15px;
+        }
+        .svc-body {
+          font-size: 14px;
+        }
+      }
+
+      /* ═══════════════════════════════════════════
+       WHY ME
+    ═══════════════════════════════════════════ */
+      .why-section {
+        background: var(--ink);
+      }
+      .why-item {
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+      }
+      .why-num {
+        font-family: "Archivo Black", sans-serif;
+        font-size: 48px;
+        color: rgba(255, 255, 255, 0.08);
+        line-height: 1;
+        letter-spacing: -0.03em;
+        min-width: 56px;
+      }
+      .why-title {
+        font-family: "Archivo Black", sans-serif;
+        font-size: 16px;
+        color: #fff;
+        margin-bottom: 8px;
+        letter-spacing: -0.01em;
+      }
+      .why-body {
+        font-family: "League Spartan", sans-serif;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.5);
+        font-weight: 300;
+        line-height: 1.65;
+      }
+      @media (max-width: 767px) {
+        .why-num {
+          font-size: 36px;
+          min-width: 44px;
+        }
+        .why-title {
+          font-size: 14px;
+        }
+        .why-body {
+          font-size: 13px;
+        }
+      }
+
+      /* ═══════════════════════════════════════════
+       EXPERIENCE
+    ═══════════════════════════════════════════ */
+      .exp-item {
+        position: relative;
+        padding-left: 28px;
+        padding-bottom: 40px;
+      }
+      .exp-item::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 8px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--accent);
+        border: 2px solid var(--white);
+        box-shadow: 0 0 0 2px var(--accent);
+      }
+      .exp-item::after {
+        content: "";
+        position: absolute;
+        left: 4px;
+        top: 22px;
+        bottom: 0;
+        width: 2px;
+        background: var(--sand);
+      }
+      .exp-item:last-child::after {
+        display: none;
+      }
+      .exp-item:last-child {
+        padding-bottom: 0;
+      }
+      .exp-tag {
+        font-family: "League Spartan", sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        background: rgba(42, 92, 63, 0.1);
+        color: var(--accent);
+        padding: 3px 10px;
+        border-radius: 4px;
+      }
+      .exp-company {
+        font-family: "League Spartan", sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--bark);
+        letter-spacing: 0.04em;
+        margin-bottom: 10px;
+      }
+      .exp-desc {
+        font-family: "League Spartan", sans-serif;
+        font-size: 14px;
+        color: var(--ink-soft);
+        font-weight: 300;
+        line-height: 1.65;
+      }
+
+      /* ═══════════════════════════════════════════
+       PROJECT CARDS
+    ═══════════════════════════════════════════ */
+      .proj-card {
+        background: var(--white);
+        border: 1px solid var(--sand);
+        border-radius: 16px;
+        overflow: hidden;
+        text-decoration: none;
+        color: inherit;
+        display: block;
+        transition:
+          box-shadow 0.3s,
+          transform 0.3s,
+          border-color 0.3s;
+      }
+      .proj-card:hover {
+        box-shadow: 0 16px 48px rgba(26, 24, 20, 0.12);
+        transform: translateY(-4px);
+        border-color: var(--accent);
+      }
+      .proj-img-wrap {
+        width: 100%;
+        aspect-ratio: 16/9;
+        background: var(--sand);
+        overflow: hidden;
+        position: relative;
+      }
+      .proj-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+        transition: transform 0.55s ease;
+      }
+      .proj-card:hover .proj-img {
+        transform: scale(1.04);
+      }
+      .proj-img-fallback {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, var(--sand), var(--stone));
+        font-family: "Archivo Black", sans-serif;
+        font-size: 20px;
+        color: var(--bark);
+        letter-spacing: -0.01em;
+      }
+      .proj-mob-badge {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        background: rgba(10, 9, 8, 0.75);
+        border-radius: 6px;
+        padding: 4px 10px;
+        font-family: "League Spartan", sans-serif;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.8);
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        backdrop-filter: blur(6px);
+      }
+      .proj-body {
+        padding: 22px;
+      }
+      .proj-url-tag {
+        font-family: "League Spartan", sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--bark);
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .proj-desc {
+        font-family: "League Spartan", sans-serif;
+        font-size: 14px;
+        color: var(--ink-soft);
+        margin-top: 8px;
+        line-height: 1.6;
+        font-weight: 300;
+      }
+      .proj-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 16px;
+      }
+      .ptag {
+        font-family: "League Spartan", sans-serif;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        background: var(--off-white);
+        border: 1px solid var(--sand);
+        border-radius: 4px;
+        padding: 4px 9px;
+        color: var(--ink-soft);
+      }
+
+      /* ── Mobile showcase ── */
+      .mobile-showcase-section {
+        background: var(--off-white);
+      }
+      .mobile-showcase-grid {
+        display: flex;
+        gap: 28px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 48px;
+      }
+      .mobile-frame {
+        width: 180px;
+        flex-shrink: 0;
+        background: var(--ink);
+        border-radius: 32px;
+        padding: 8px;
+        box-shadow: 0 20px 60px rgba(26, 24, 20, 0.22);
+        position: relative;
+      }
+      .mobile-frame-inner {
+        border-radius: 26px;
+        overflow: hidden;
+        width: 100%;
+        aspect-ratio: 9/19;
+        background: var(--sand);
+        position: relative;
+      }
+      .mobile-frame-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+      }
+      .mobile-frame-notch {
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 6px;
+        background: var(--ink);
+        border-radius: 10px;
+        z-index: 2;
+      }
+      .mobile-frame-label {
+        text-align: center;
+        margin-top: 12px;
+        font-family: "League Spartan", sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--bark);
+      }
+      @media (max-width: 767px) {
+        .mobile-frame {
+          width: 140px;
+        }
+      }
+
+      /* ═══════════════════════════════════════════
+       TESTIMONIALS
+    ═══════════════════════════════════════════ */
+      .testimonials-section {
+        background: var(--dark-bg);
+      }
+      .tcard {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        border-radius: 16px;
+        padding: 36px;
+        transition:
+          background 0.25s,
+          border-color 0.25s;
+      }
+      .tcard:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.18);
+      }
+      .tquote-open {
+        font-family: "Archivo Black", sans-serif;
+        font-size: 44px;
+        line-height: 0.8;
+        color: var(--accent-lt);
+        display: block;
+        margin-bottom: 12px;
+      }
+      .stars {
+        color: #f5b92e;
+        font-size: 13px;
+        letter-spacing: 0.05em;
+        margin-bottom: 12px;
+      }
+      .tavatar {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "League Spartan", sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        color: #fff;
+        flex-shrink: 0;
+      }
+      .tname {
+        font-family: "League Spartan", sans-serif;
+        font-size: 13px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .trole {
+        font-family: "League Spartan", sans-serif;
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.32);
+        letter-spacing: 0.04em;
+      }
+      @media (max-width: 767px) {
+        .tcard {
+          padding: 24px;
+        }
+      }
+
+      /* ═══════════════════════════════════════════
+       HOW I WORK
+    ═══════════════════════════════════════════ */
+      .how-section {
+        background: var(--off-white);
+      }
+      .step-card {
+        background: var(--white);
+        border: 1px solid var(--sand);
+        border-radius: 14px;
+        padding: 28px;
+        position: relative;
+        transition:
+          box-shadow 0.25s,
+          transform 0.25s;
+      }
+      .step-card:hover {
+        box-shadow: 0 8px 32px rgba(42, 92, 63, 0.1);
+        transform: translateY(-2px);
+      }
+      .step-num {
+        font-family: "Archivo Black", sans-serif;
+        font-size: 56px;
+        color: var(--sand);
+        line-height: 1;
+        letter-spacing: -0.03em;
+        position: absolute;
+        top: 20px;
+        right: 22px;
+      }
+      .step-title {
+        font-family: "Archivo Black", sans-serif;
+        font-size: 16px;
+        letter-spacing: -0.01em;
+        margin-bottom: 8px;
+      }
+      .step-body {
+        font-family: "League Spartan", sans-serif;
+        font-size: 14px;
+        color: var(--ink-soft);
+        font-weight: 300;
+        line-height: 1.65;
+      }
+      @media (max-width: 767px) {
+        .step-num {
+          font-size: 44px;
+        }
+        .step-title {
+          font-size: 15px;
+        }
+      }
+
+      /* ═══════════════════════════════════════════
+       TECH PILLS
+    ═══════════════════════════════════════════ */
+      .tech-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--white);
+        border: 1.5px solid var(--sand);
+        border-radius: 8px;
+        padding: 8px 16px;
+        font-family: "League Spartan", sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--ink-soft);
+        letter-spacing: 0.02em;
+        transition:
+          border-color 0.2s,
+          background 0.2s,
+          color 0.2s;
+      }
+      .tech-pill:hover {
+        border-color: var(--accent);
+        background: rgba(42, 92, 63, 0.05);
+        color: var(--accent);
+      }
+      @media (max-width: 767px) {
+        .tech-pill {
+          font-size: 12px;
+          padding: 7px 13px;
+        }
+      }
+
+      /* ═══════════════════════════════════════════
+       CONTACT
+    ═══════════════════════════════════════════ */
+      .contact-section {
+        background: linear-gradient(140deg, #0f1d14 0%, #1a1814 100%);
+      }
+      .contact-info-link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: rgba(255, 255, 255, 0.65);
+        text-decoration: none;
+        font-family: "League Spartan", sans-serif;
+        font-size: 15px;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+      .contact-info-link:hover {
+        color: #fff;
+      }
+      .contact-info-icon {
+        font-size: 17px;
+      }
+      .contact-form-wrap {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        border-radius: 20px;
+        padding: 40px;
+      }
+      .form-title {
+        font-family: "Archivo Black", sans-serif;
+        font-size: 20px;
+        color: #fff;
+        letter-spacing: -0.01em;
+        margin-bottom: 28px;
+      }
+      .form-row {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        margin-bottom: 20px;
+      }
+      .form-label {
+        font-family: "League Spartan", sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.45);
+      }
+      .form-input,
+      .form-textarea {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.11);
+        border-radius: 8px;
+        padding: 14px 18px;
+        font-family: "League Spartan", sans-serif;
+        font-size: 15px;
+        color: #fff;
+        outline: none;
+        transition:
+          border-color 0.2s,
+          background 0.2s;
+        resize: vertical;
+      }
+      .form-input::placeholder,
+      .form-textarea::placeholder {
+        color: rgba(255, 255, 255, 0.22);
+      }
+      .form-input:focus,
+      .form-textarea:focus {
+        border-color: var(--accent-lt);
+        background: rgba(255, 255, 255, 0.09);
+      }
+      .form-status {
+        margin-top: 14px;
+        padding: 12px 16px;
+        border-radius: 8px;
+        font-family: "League Spartan", sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        display: none;
+      }
+      .form-status.success {
+        background: rgba(42, 92, 63, 0.25);
+        color: #6aaf87;
+        border: 1px solid rgba(42, 92, 63, 0.35);
+        display: block;
+      }
+      .form-status.error {
+        background: rgba(212, 84, 26, 0.2);
+        color: #e87d50;
+        border: 1px solid rgba(212, 84, 26, 0.3);
+        display: block;
+      }
+      @media (max-width: 767px) {
+        .contact-form-wrap {
+          padding: 28px 20px;
+        }
+        .contact-info-link {
+          font-size: 14px;
+        }
+      }
+
+      /* ═══════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════ */
+      .footer {
+        background: #080807;
+        padding: 32px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+      .footer-name {
+        font-family: "Archivo Black", sans-serif;
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.35);
+        letter-spacing: -0.01em;
+      }
+      .footer-meta {
+        font-family: "League Spartan", sans-serif;
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.2);
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+      .footer-copy {
+        font-family: "League Spartan", sans-serif;
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.2);
+      }
+      @media (max-width: 767px) {
+        .footer {
+          padding: 24px 20px;
+        }
+      }
+
+      /* ═══════════════════════════════════════════
+       NOISE OVERLAY
+    ═══════════════════════════════════════════ */
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 9999;
+        opacity: 0.02;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        background-size: 180px 180px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ═══════════════════════════════ NAV ═══ -->
+    <nav class="navbar" id="navbar">
+      <a href="#hero" class="nav-logo">Harvey Ignacio</a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#testimonials" class="nav-link">Testimonials</a>
+        <a href="#contact" class="nav-cta-btn">Let's Talk</a>
+      </div>
+
+      <button class="burger-btn" id="burger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- ═══════════════════════════════ HERO ═══ -->
+    <section class="hero-section" id="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-inner">
+        <div class="hero-badge fu d1">
+          <span class="dot-live"></span>
+          Available for new projects
         </div>
+
+        <h1 class="hero-heading fu d2">
+          I build websites<br />
+          that <span class="outline-word">solve</span><br />
+          real problems.
+        </h1>
+
+        <p
+          class="hero-sub fu d3"
+          style="margin-top: 24px; margin-bottom: 40px; max-width: 500px">
+          Web development, ecommerce, UI design, and graphics — I work across
+          the full picture. If your website isn't working the way it should,
+          I'll find out why and fix it.
+        </p>
+
+        <div class="fu d4" style="display: flex; gap: 16px; flex-wrap: wrap">
+          <a href="#projects" class="btn btn-cta">
+            See My Work
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                d="M3 8h10M9 4l4 4-4 4"
+                stroke="currentColor"
+                stroke-width="1.75"
+                stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </a>
+          <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+        </div>
+      </div>
+      <div class="hero-scroll-hint fu d5">
+        <span class="hero-scroll-text">Scroll</span>
+        <div class="hero-scroll-line"></div>
+      </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-grid">
-                <div class="about-image">
-                    <!-- Free vector illustration -->
-                    <img src="https://illustrations.popsy.co/amber/man-riding-a-rocket.svg" alt="About me illustration" class="illustration">
-                </div>
-                <div class="about-text">
-                    <p class="intro">I'm a Shopify and WordPress developer with <strong>6+ years of experience</strong> building e-commerce stores and web applications. For the past 3 years, I've specialized in Shopify development, maintaining <strong>10+ live brand storefronts</strong> for US-based companies.</p>
-                    
-                    <p>My journey started with WordPress/WooCommerce development, expanded to SEO and full-stack technologies (Angular, Node.js), and evolved into Shopify specialization. This background helps me understand not just how to code features, but how to build stores that rank well, convert visitors, and drive sales.</p>
-
-                    <div class="skills-grid">
-                        <div class="skill-category">
-                            <h3>E-commerce</h3>
-                            <ul>
-                                <li>Shopify (Liquid)</li>
-                                <li>WordPress</li>
-                                <li>WooCommerce</li>
-                                <li>Theme Customization</li>
-                                <li>Performance Optimization</li>
-                                <li>SEO</li>
-                            </ul>
-                        </div>
-                        <div class="skill-category">
-                            <h3>Frontend</h3>
-                            <ul>
-                                <li>HTML5 & CSS3</li>
-                                <li>JavaScript (ES6+)</li>
-                                <li>jQuery & TypeScript</li>
-                                <li>Tailwind CSS</li>
-                                <li>Bootstrap</li>
-                                <li>Responsive Design</li>
-                            </ul>
-                        </div>
-                        <div class="skill-category">
-                            <h3>Backend & Tools</h3>
-                            <ul>
-                                <li>Node.js</li>
-                                <li>Angular</li>
-                                <li>REST APIs</li>
-                                <li>MongoDB & MySQL</li>
-                                <li>Git & GitHub</li>
-                                <li>Shopify CLI</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- ═══════════════════════════════ STATS ═══ -->
+    <section class="stats-bar">
+      <div class="stats-grid">
+        <div class="reveal">
+          <div class="stat-number">6+</div>
+          <div class="stat-label-text">Years experience</div>
         </div>
+        <div class="reveal rd1">
+          <div class="stat-number">30+</div>
+          <div class="stat-label-text">Projects delivered</div>
+        </div>
+        <div class="reveal rd2">
+          <div class="stat-number">7+</div>
+          <div class="stat-label-text">Ecommerce stores</div>
+        </div>
+        <div class="reveal rd3">
+          <div class="stat-number">100%</div>
+          <div class="stat-label-text">Remote ready</div>
+        </div>
+      </div>
     </section>
 
-    <!-- Portfolio Section -->
-    <section class="portfolio" id="portfolio">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <p class="section-subtitle">Live Shopify stores I've developed and maintained for US-based e-commerce brands</p>
-
-            <div class="projects-grid">
-                <!-- Project 1: FoxyBae -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <a href="https://www.foxybae.com" target="_blank" rel="noopener">
-                            <img src="images/foxybae-preview.jpg" alt="FoxyBae Shopify Store" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'>FoxyBae Screenshot</div>'">
-                            <div class="project-overlay">
-                                <span class="view-site">View Live Site →</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">FoxyBae</h3>
-                        <p class="project-category">Beauty & Hair Care E-commerce</p>
-                        <p class="project-description">Custom Shopify theme development for a beauty and hair care brand. Built custom product pages, optimized cart functionality, and implemented responsive design across all devices.</p>
-                        <div class="project-details">
-                            <h4>What I Built:</h4>
-                            <ul>
-                                <li>Custom Liquid theme modifications</li>
-                                <li>Product page optimization and layout customization</li>
-                                <li>Enhanced cart functionality and user experience improvements</li>
-                                <li>Mobile-responsive design implementation</li>
-                                <li>Performance optimization for faster page loads</li>
-                            </ul>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Shopify</span>
-                            <span class="tech-tag">Liquid</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">CSS</span>
-                        </div>
-                        <a href="https://www.foxybae.com" target="_blank" rel="noopener" class="project-link">Visit foxybae.com →</a>
-                    </div>
-                </div>
-
-                <!-- Project 2: Asterwood -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <a href="https://www.asterwood.co" target="_blank" rel="noopener">
-                            <img src="images/asterwood-preview.jpg" alt="Asterwood Shopify Store" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'>Asterwood Screenshot</div>'">
-                            <div class="project-overlay">
-                                <span class="view-site">View Live Site →</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Asterwood</h3>
-                        <p class="project-category">Fashion E-commerce</p>
-                        <p class="project-description">Complete Shopify store customization for a fashion brand. Built custom collection pages, product filtering system, and seamless checkout experience focused on conversion optimization.</p>
-                        <div class="project-details">
-                            <h4>What I Built:</h4>
-                            <ul>
-                                <li>Full theme customization and brand implementation</li>
-                                <li>Advanced product filtering and sorting functionality</li>
-                                <li>Custom collection page layouts</li>
-                                <li>Enhanced checkout flow</li>
-                                <li>Site-wide performance and speed improvements</li>
-                            </ul>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Shopify</span>
-                            <span class="tech-tag">Theme Development</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">UX</span>
-                        </div>
-                        <a href="https://www.asterwood.co" target="_blank" rel="noopener" class="project-link">Visit asterwood.co →</a>
-                    </div>
-                </div>
-
-                <!-- Project 3: Two Sisters Spa -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <a href="https://twosistersspa.com" target="_blank" rel="noopener">
-                            <img src="images/twosistersspa-preview.jpg" alt="Two Sisters Spa Shopify Store" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'>Two Sisters Spa Screenshot</div>'">
-                            <div class="project-overlay">
-                                <span class="view-site">View Live Site →</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Two Sisters Spa</h3>
-                        <p class="project-category">Spa & Wellness E-commerce</p>
-                        <p class="project-description">Custom landing pages and theme customization for a spa and wellness brand. Created flexible, reusable sections for marketing campaigns with dynamic content capabilities.</p>
-                        <div class="project-details">
-                            <h4>What I Built:</h4>
-                            <ul>
-                                <li>Custom landing page development for marketing campaigns</li>
-                                <li>Mobile-first responsive design implementation</li>
-                                <li>Reusable custom sections for content flexibility</li>
-                                <li>Product showcase and collection optimization</li>
-                                <li>Performance optimization and SEO improvements</li>
-                            </ul>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Shopify</span>
-                            <span class="tech-tag">Liquid</span>
-                            <span class="tech-tag">Landing Pages</span>
-                            <span class="tech-tag">SEO</span>
-                        </div>
-                        <a href="https://twosistersspa.com" target="_blank" rel="noopener" class="project-link">Visit twosistersspa.com →</a>
-                    </div>
-                </div>
+    <!-- ═══════════════════════════════ ABOUT ═══ -->
+    <section class="about-section sec" id="about">
+      <div class="wrap">
+        <div class="grid-2" style="align-items: center">
+          <div class="reveal">
+            <p class="section-label" style="margin-bottom: 16px">About Me</p>
+            <h2 class="sec-heading" style="margin-bottom: 24px">
+              Developer, designer,<br />and problem finder.
+            </h2>
+            <div style="display: flex; flex-direction: column; gap: 16px">
+              <p class="body-text">
+                I'm Harvey — a web developer and designer with 6+ years of
+                experience helping businesses build and improve their online
+                presence. I started in WordPress and ecommerce, but my work
+                spans full website builds, Shopify stores, UI design, and
+                graphics.
+              </p>
+              <p class="body-text">
+                I don't just write code. I look at how a site is structured, how
+                users move through it, and whether the design actually
+                communicates what the business needs. Then I fix what's broken
+                and build what's missing.
+              </p>
+              <p class="body-text">
+                I've worked with US-based DTC brands, startups, and small
+                businesses — collaborating with design and marketing teams,
+                fully remote. I handle my own graphics so you don't need to
+                coordinate between a designer and a developer for most tasks.
+              </p>
             </div>
-
-            <!-- Additional Projects -->
-            <div class="more-projects">
-                <h3>More Projects</h3>
-                <div class="project-links">
-                    <a href="https://primelabs.org" target="_blank" rel="noopener">PrimeLabs →</a>
-                    <a href="https://www.myvitalvitamins.com" target="_blank" rel="noopener">MyVitalVitamins →</a>
-                    <a href="https://happyhealthyhippieco.com" target="_blank" rel="noopener">Happy Healthy Hippie Co →</a>
-                </div>
-                <p class="projects-note">All projects developed while working at Boosted Commerce (2023-2026)</p>
+            <div
+              style="
+                display: flex;
+                gap: 16px;
+                flex-wrap: wrap;
+                margin-top: 32px;
+              ">
+              <a href="#contact" class="btn btn-green">Work with me</a>
+              <a href="#projects" class="btn btn-outline-dark">See projects</a>
             </div>
+          </div>
+
+          <!-- Modern profile card with actual photo -->
+          <div class="reveal rd1">
+            <div class="profile-card">
+              <div class="profile-card-img-wrap">
+                <img
+                  src="/mnt/user-data/uploads/1774509018520_image.png"
+                  alt="Harvey Ignacio"
+                  class="profile-card-img"
+                  onerror="
+                    this.style.display = 'none';
+                    this.nextElementSibling.style.display = 'flex';
+                  " />
+                <div class="profile-card-img-placeholder" style="display: none">
+                  HI
+                </div>
+              </div>
+              <div class="profile-card-body">
+                <div class="profile-card-name">Harvey Ignacio</div>
+                <div class="profile-card-role">Web Developer & Designer</div>
+                <div class="profile-card-status">
+                  <div class="status-dot"></div>
+                  <span class="status-text">Open to projects</span>
+                </div>
+                <hr class="profile-card-divider" />
+                <div class="profile-detail-item">
+                  <span class="profile-detail-icon"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="56"
+                      height="56"
+                      viewBox="0 0 56 56">
+                      <path
+                        fill="currentColor"
+                        d="M5.137 28.223c.82.82 1.64 1.078 3.258 1.078l17.742.094c.164 0 .304 0 .375.093c.07.07.093.211.093.352l.07 17.766c.024 1.617.282 2.437 1.102 3.257c1.102 1.125 2.649.938 3.797-.187c.61-.61 1.102-1.617 1.547-2.555L51.051 9.45c.937-1.968.82-3.422-.14-4.383c-.939-.937-2.392-1.054-4.36-.117L7.879 22.88c-.938.445-1.945.937-2.555 1.547c-1.125 1.148-1.312 2.672-.187 3.797" /></svg
+                  ></svg></span>
+                  <span class="profile-detail-text"
+                    >Based in Philippines — works with US & global clients</span
+                  >
+                </div>
+                <div class="profile-detail-item">
+                  <span class="profile-detail-icon"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24">
+                      <path
+                        fill="currentColor"
+                        d="M12.625 2.22a1 1 0 0 0-1.25 0l-3.75 3a1 1 0 1 0 1.25 1.56L12 4.28l3.125 2.5a1 1 0 0 0 1.25-1.56zM2.75 9A2.25 2.25 0 0 0 .5 11.25v1.5a2.25 2.25 0 0 0 4.5 0v-1.5A2.25 2.25 0 0 0 2.75 9M2 11.25a.75.75 0 0 1 1.5 0v1.5a.75.75 0 0 1-1.5 0zM8.25 9A2.25 2.25 0 0 0 6 11.25v1.5a2.25 2.25 0 0 0 4.5 0v-1.5A2.25 2.25 0 0 0 8.25 9m-.75 2.25a.75.75 0 0 1 1.5 0v1.5a.75.75 0 0 1-1.5 0zm6.5 0a2.25 2.25 0 0 1 4.5 0v1.5a2.25 2.25 0 0 1-4.5 0zm2.25-.75a.75.75 0 0 0-.75.75v1.5a.75.75 0 0 0 1.5 0v-1.5a.75.75 0 0 0-.75-.75m5.5-1.5a2.25 2.25 0 0 0-2.25 2.25v1.5a2.25 2.25 0 0 0 4.5 0v-1.5A2.25 2.25 0 0 0 21.75 9M21 11.25a.75.75 0 0 1 1.5 0v1.5a.75.75 0 0 1-1.5 0zm-8-.5a.75.75 0 1 1-1.5 0a.75.75 0 0 1 1.5 0m-.75 3.75a.75.75 0 1 0 0-1.5a.75.75 0 0 0 0 1.5m.38 7.526l4-3.25a1 1 0 0 0-1.26-1.552L12 19.962l-3.37-2.738a1 1 0 1 0-1.26 1.552l4 3.25a1 1 0 0 0 1.26 0" /></svg
+                  ></svg></span>
+                  <span class="profile-detail-text"
+                    >Comfortable with async workflows and overlap hours</span
+                  >
+                </div>
+                <div class="profile-detail-item">
+                  <span class="profile-detail-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24">
+                      <path
+                        fill="currentColor"
+                        d="M17.5 12a1.5 1.5 0 0 1-1.5-1.5A1.5 1.5 0 0 1 17.5 9a1.5 1.5 0 0 1 1.5 1.5a1.5 1.5 0 0 1-1.5 1.5m-3-4A1.5 1.5 0 0 1 13 6.5A1.5 1.5 0 0 1 14.5 5A1.5 1.5 0 0 1 16 6.5A1.5 1.5 0 0 1 14.5 8m-5 0A1.5 1.5 0 0 1 8 6.5A1.5 1.5 0 0 1 9.5 5A1.5 1.5 0 0 1 11 6.5A1.5 1.5 0 0 1 9.5 8m-3 4A1.5 1.5 0 0 1 5 10.5A1.5 1.5 0 0 1 6.5 9A1.5 1.5 0 0 1 8 10.5A1.5 1.5 0 0 1 6.5 12M12 3a9 9 0 0 0-9 9a9 9 0 0 0 9 9a1.5 1.5 0 0 0 1.5-1.5c0-.39-.15-.74-.39-1c-.23-.27-.38-.62-.38-1a1.5 1.5 0 0 1 1.5-1.5H16a5 5 0 0 0 5-5c0-4.42-4.03-8-9-8" />
+                    </svg>
+                  </span>
+                  <span class="profile-detail-text"
+                    >Handles dev + design + graphics — fewer people to
+                    manage</span
+                  >
+                </div>
+                <div class="profile-detail-item">
+                  <span class="profile-detail-icon"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24">
+                      <path
+                        fill="currentColor"
+                        d="M14.4 3.686L7.2 16.16L4.8 12l4.8-8.314H4.8L0 12l2.4 4.159l2.4 4.155h4.8l7.2-12.469L19.2 12l-4.8 8.314h4.8l2.4-4.155L24 12l-2.4-4.155l-2.4-4.159Z" /></svg
+                  ></svg></span>
+                  <span class="profile-detail-text"
+                    >Ramps up quickly on existing codebases and live
+                    stores</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Experience Section -->
-    <section class="experience" id="experience">
-        <div class="container">
-            <h2 class="section-title">Experience Highlights</h2>
-            
-            <div class="experience-grid">
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <h3>Shopify Developer</h3>
-                        <p class="company">Boosted Commerce (US)</p>
-                        <p class="duration">July 2023 - March 2026</p>
-                    </div>
-                    <ul class="experience-highlights">
-                        <li>Maintained 10+ live Shopify storefronts for US e-commerce brands</li>
-                        <li>Built custom themes and features using Liquid, JavaScript, and modern web technologies</li>
-                        <li>Collaborated with US-based teams across multiple time zones</li>
-                    </ul>
-                </div>
+    <hr class="divider" />
 
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <h3>Software Developer</h3>
-                        <p class="company">Strongwill I.T Solutions</p>
-                        <p class="duration">November 2020 - July 2023</p>
-                    </div>
-                    <ul class="experience-highlights">
-                        <li>Developed web applications using Angular, Node.js, and MongoDB</li>
-                        <li>Built REST APIs and responsive frontend features</li>
-                    </ul>
-                </div>
-
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <h3>WordPress Developer</h3>
-                        <p class="company">NOW Outsourcing Services</p>
-                        <p class="duration">August 2019 - May 2020</p>
-                    </div>
-                    <ul class="experience-highlights">
-                        <li>Developed and customized WordPress themes and WooCommerce stores</li>
-                        <li>Built client websites using PHP, MySQL, HTML, CSS, and JavaScript</li>
-                    </ul>
-                </div>
-            </div>
+    <!-- ═══════════════════════════════ SERVICES ═══ -->
+    <section class="sec" id="services">
+      <div class="wrap">
+        <div class="reveal" style="text-align: center; margin-bottom: 48px">
+          <p class="section-label" style="margin-bottom: 12px">What I Do</p>
+          <h2 class="sec-heading">Not just Shopify.<br />The whole website.</h2>
+          <p
+            class="body-text"
+            style="
+              margin-top: 16px;
+              max-width: 480px;
+              margin-left: auto;
+              margin-right: auto;
+            ">
+            Ecommerce stores, business websites, landing pages, UI design, and
+            graphics — I help across the board.
+          </p>
         </div>
+        <div class="grid-3">
+          <div class="svc-card reveal">
+            <div class="svc-icon">🛒</div>
+            <h3 class="svc-title">Ecommerce Development</h3>
+            <p class="svc-body">
+              Shopify and WooCommerce builds, theme customization, product
+              pages, landing pages, and performance improvements built for real
+              traffic and conversions.
+            </p>
+          </div>
+          <div class="svc-card reveal rd1">
+            <div class="svc-icon">🌐</div>
+            <h3 class="svc-title">Website Builds</h3>
+            <p class="svc-body">
+              Custom WordPress sites and web applications. From business sites
+              to complex platforms — fast, mobile-ready, and translated
+              accurately from design.
+            </p>
+          </div>
+          <div class="svc-card reveal rd2">
+            <div class="svc-icon">🎨</div>
+            <h3 class="svc-title">UI Design & Graphics</h3>
+            <p class="svc-body">
+              I design my own graphics and UI elements — banners, layouts,
+              product visuals. No separate designer needed for most assets.
+            </p>
+          </div>
+          <div class="svc-card reveal">
+            <div class="svc-icon">🔍</div>
+            <h3 class="svc-title">Problem Identification</h3>
+            <p class="svc-body">
+              I audit your site critically — structure, UX flow, friction
+              points, mobile — and tell you what's actually hurting you before
+              writing a single line of code.
+            </p>
+          </div>
+          <div class="svc-card reveal rd1">
+            <div class="svc-icon">📈</div>
+            <h3 class="svc-title">CRO & UX Improvements</h3>
+            <p class="svc-body">
+              Targeted changes that improve how users move through your site.
+              Better layout, clearer CTAs, faster pages — without a full
+              redesign.
+            </p>
+          </div>
+          <div class="svc-card reveal rd2">
+            <div class="svc-icon">🛠️</div>
+            <h3 class="svc-title">Maintenance & Support</h3>
+            <p class="svc-body">
+              Ongoing updates, bug fixes, and performance monitoring. A reliable
+              pair of hands for when things break or need to evolve.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title">Let's Work Together</h2>
-            <p class="section-subtitle">Available for full-time, part-time, or contract positions</p>
-            
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <h3>📧 Email</h3>
-                        <a href="mailto:ignacio.harveyjohn@gmail.com">ignacio.harveyjohn@gmail.com</a>
-                    </div>
-                    <div class="contact-item">
-                        <h3>📍 Location</h3>
-                        <p>Mati City, Philippines</p>
-                        <p class="note">Open to remote work with US, European, and Australian clients</p>
-                    </div>
-                    <div class="contact-item">
-                        <h3>💼 LinkedIn</h3>
-                        <a href="https://linkedin.com/in/ignacioharveyj" target="_blank" rel="noopener">View Profile →</a>
-                    </div>
-                </div>
-
-                <div class="contact-cta">
-                    <h3>What I Can Help With:</h3>
-                    <ul>
-                        <li>✓ Custom Shopify theme development</li>
-                        <li>✓ WordPress/WooCommerce customization</li>
-                        <li>✓ E-commerce store optimization</li>
-                        <li>✓ Landing pages and marketing campaigns</li>
-                        <li>✓ Performance and SEO improvements</li>
-                        <li>✓ Ongoing maintenance and support</li>
-                    </ul>
-                    <a href="mailto:ignacio.harveyjohn@gmail.com" class="btn btn-primary">Send Me an Email</a>
-                </div>
-            </div>
+    <!-- ═══════════════════════════════ WHY ME ═══ -->
+    <section class="why-section sec">
+      <div class="wrap">
+        <div class="reveal" style="margin-bottom: 48px">
+          <p
+            class="section-label section-label--light"
+            style="margin-bottom: 12px">
+            Why Work With Me
+          </p>
+          <h2 class="sec-heading" style="color: #fff">
+            I think about the whole<br />experience, not just the build.
+          </h2>
         </div>
+        <div class="grid-3">
+          <div class="why-item reveal">
+            <div class="why-num">01</div>
+            <div>
+              <h3 class="why-title">Users first, code second</h3>
+              <p class="why-body">
+                I build with the end user in mind. What are they looking for?
+                Where do they drop off? A page that looks good but confuses
+                people isn't working.
+              </p>
+            </div>
+          </div>
+          <div class="why-item reveal rd1">
+            <div class="why-num">02</div>
+            <div>
+              <h3 class="why-title">Attention to the small stuff</h3>
+              <p class="why-body">
+                Mobile layout, load speed, spacing, hover states — these details
+                compound. I pay attention to what's easy to overlook and hard to
+                quantify.
+              </p>
+            </div>
+          </div>
+          <div class="why-item reveal rd2">
+            <div class="why-num">03</div>
+            <div>
+              <h3 class="why-title">I find the problem first</h3>
+              <p class="why-body">
+                Before building anything, I want to understand what's actually
+                wrong. Sometimes the issue isn't what you think it is.
+              </p>
+            </div>
+          </div>
+          <div class="why-item reveal">
+            <div class="why-num">04</div>
+            <div>
+              <h3 class="why-title">Real ecommerce experience</h3>
+              <p class="why-body">
+                I've worked on live stores with real traffic. A broken mobile
+                section isn't just a bug — it's money walking out the door.
+              </p>
+            </div>
+          </div>
+          <div class="why-item reveal rd1">
+            <div class="why-num">05</div>
+            <div>
+              <h3 class="why-title">Designer + Developer in one</h3>
+              <p class="why-body">
+                I handle my own graphics and UI design. You don't always need to
+                coordinate between two separate people for most tasks.
+              </p>
+            </div>
+          </div>
+          <div class="why-item reveal rd2">
+            <div class="why-num">06</div>
+            <div>
+              <h3 class="why-title">Easy to work with</h3>
+              <p class="why-body">
+                I communicate clearly, flag issues early, and don't disappear.
+                I'd rather over-communicate than leave you guessing on a
+                deadline.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ═══════════════════════════════ EXPERIENCE ═══ -->
+    <section class="sec" id="experience">
+      <div class="wrap">
+        <div class="grid-2" style="align-items: start">
+          <div class="reveal">
+            <p class="section-label" style="margin-bottom: 16px">Experience</p>
+            <h2 class="sec-heading" style="margin-bottom: 24px">
+              6 years across<br />three disciplines.
+            </h2>
+            <p class="body-text" style="max-width: 360px">
+              Ecommerce, software development, and content management — I've
+              worked across different business types. That breadth makes me a
+              more complete developer.
+            </p>
+          </div>
+          <div class="reveal rd1" style="padding-top: 8px">
+            <div class="exp-item">
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: flex-start;
+                  flex-wrap: wrap;
+                  gap: 6px;
+                  margin-bottom: 10px;
+                ">
+                <h3 class="exp-role">Shopify Developer</h3>
+                <span class="exp-tag">2023 – 2026</span>
+              </div>
+              <p class="exp-company">Boosted Commerce</p>
+              <p class="exp-desc">
+                Worked across 7+ Shopify stores for US DTC brands. Built pages
+                from Figma using Liquid, HTML, CSS, JS, and Replo. Improved Core
+                Web Vitals and mobile performance. PDPs, landing pages, and CRO
+                work alongside US teams daily.
+              </p>
+            </div>
+            <div class="exp-item">
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: flex-start;
+                  flex-wrap: wrap;
+                  gap: 6px;
+                  margin-bottom: 10px;
+                ">
+                <h3 class="exp-role">Software Developer</h3>
+                <span class="exp-tag">2020 – 2023</span>
+              </div>
+              <p class="exp-company">Strongwill IT</p>
+              <p class="exp-desc">
+                Built a patient management system using Angular, Node.js, and
+                MongoDB. Frontend development and API integration. Solid
+                foundation in application architecture and structured data.
+              </p>
+            </div>
+            <div class="exp-item">
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: flex-start;
+                  flex-wrap: wrap;
+                  gap: 6px;
+                  margin-bottom: 10px;
+                ">
+                <h3 class="exp-role">WordPress Developer</h3>
+                <span class="exp-tag">2019 – 2020</span>
+              </div>
+              <p class="exp-company">NOW Outsourcing</p>
+              <p class="exp-desc">
+                Built WordPress and WooCommerce sites using page builders and
+                custom responsive layouts. Where my web development foundation
+                started.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ═══════════════════════════════ PROJECTS ═══ -->
+    <section class="sec" id="projects">
+      <div class="wrap-lg">
+        <div class="reveal" style="text-align: center; margin-bottom: 48px">
+          <p class="section-label" style="margin-bottom: 12px">Selected Work</p>
+          <h2 class="sec-heading">Projects I've worked on.</h2>
+          <p
+            class="body-text"
+            style="
+              margin-top: 16px;
+              max-width: 440px;
+              margin-left: auto;
+              margin-right: auto;
+            ">
+            Most of this was done as part of a team. I'm sharing what I
+            contributed — not taking credit for the whole thing.
+          </p>
+        </div>
+
+        <div class="grid-3p">
+          <a
+            href="https://foxybae.com"
+            target="_blank"
+            rel="noopener"
+            class="proj-card reveal">
+            <div class="proj-img-wrap">
+              <img
+                class="proj-img"
+                src="images/foxybae.jpg"
+                alt="Foxy Bae"
+                loading="lazy"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'flex';
+                " />
+              <div class="proj-img-fallback" style="display: none">FoxyBae</div>
+              <div class="proj-mob-badge">📱 Mobile optimized</div>
+            </div>
+            <div class="proj-body">
+              <span class="proj-url-tag">
+                <svg width="9" height="9" viewBox="0 0 9 9" fill="none">
+                  <path
+                    d="M1.5 7.5l6-6M7.5 7.5V1.5H1.5"
+                    stroke="currentColor"
+                    stroke-width="1.4"
+                    stroke-linecap="round" />
+                </svg>
+                foxybae.com
+              </span>
+              <p class="proj-name">Foxy Bae</p>
+              <p class="proj-desc">
+                PDP improvements and CRO-focused updates. Component structure,
+                mobile UX, and conversion elements.
+              </p>
+              <div class="proj-tags">
+                <span class="ptag">Shopify</span><span class="ptag">CRO</span
+                ><span class="ptag">Liquid</span>
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="https://myvitalvitamins.com"
+            target="_blank"
+            rel="noopener"
+            class="proj-card reveal">
+            <div class="proj-img-wrap">
+              <img
+                class="proj-img"
+                src="images/VIV.jpg"
+                alt="My Vital Vitamins"
+                loading="lazy"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'flex';
+                " />
+              <div class="proj-img-fallback" style="display: none">MyVital</div>
+              <div class="proj-mob-badge">📱 Mobile-first</div>
+            </div>
+            <div class="proj-body">
+              <span class="proj-url-tag">
+                <svg width="9" height="9" viewBox="0 0 9 9" fill="none">
+                  <path
+                    d="M1.5 7.5l6-6M7.5 7.5V1.5H1.5"
+                    stroke="currentColor"
+                    stroke-width="1.4"
+                    stroke-linecap="round" />
+                </svg>
+                myvitalvitamins.com
+              </span>
+              <p class="proj-name">My Vital Vitamins</p>
+              <p class="proj-desc">
+                Product page and UX improvements. Bundle section work and mobile
+                experience optimization.
+              </p>
+              <div class="proj-tags">
+                <span class="ptag">Shopify</span><span class="ptag">Replo</span
+                ><span class="ptag">Mobile UX</span>
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="https://asterwood.com"
+            target="_blank"
+            rel="noopener"
+            class="proj-card reveal rd1">
+            <div class="proj-img-wrap">
+              <img
+                class="proj-img"
+                src="images/asterwood.jpg"
+                alt="Asterwood"
+                loading="lazy"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'flex';
+                " />
+              <div class="proj-img-fallback" style="display: none">
+                Asterwood
+              </div>
+            </div>
+            <div class="proj-body">
+              <span class="proj-url-tag">
+                <svg width="9" height="9" viewBox="0 0 9 9" fill="none">
+                  <path
+                    d="M1.5 7.5l6-6M7.5 7.5V1.5H1.5"
+                    stroke="currentColor"
+                    stroke-width="1.4"
+                    stroke-linecap="round" />
+                </svg>
+                asterwood.com
+              </span>
+              <p class="proj-name">Asterwood</p>
+              <p class="proj-desc">
+                Theme customization and custom section builds. Improved visual
+                consistency and layout flow across the storefront.
+              </p>
+              <div class="proj-tags">
+                <span class="ptag">Shopify</span
+                ><span class="ptag">Figma → Code</span
+                ><span class="ptag">UI</span>
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="https://flyby.co"
+            target="_blank"
+            rel="noopener"
+            class="proj-card reveal">
+            <div class="proj-img-wrap">
+              <img
+                class="proj-img"
+                src="images/fly.jpg"
+                alt="Flyby store"
+                loading="lazy"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'flex';
+                " />
+              <div class="proj-img-fallback" style="display: none">
+                flyby.co
+              </div>
+            </div>
+            <div class="proj-body">
+              <span class="proj-url-tag">
+                <svg width="9" height="9" viewBox="0 0 9 9" fill="none">
+                  <path
+                    d="M1.5 7.5l6-6M7.5 7.5V1.5H1.5"
+                    stroke="currentColor"
+                    stroke-width="1.4"
+                    stroke-linecap="round" />
+                </svg>
+                flyby.co
+              </span>
+              <p class="proj-name">Flyby</p>
+              <p class="proj-desc">
+                Theme customization and product page improvements. Focused on
+                layout structure, mobile responsiveness, and UX clarity.
+              </p>
+              <div class="proj-tags">
+                <span class="ptag">Shopify</span><span class="ptag">Liquid</span
+                ><span class="ptag">PDP</span>
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="https://twosistersspa.com"
+            target="_blank"
+            rel="noopener"
+            class="proj-card reveal rd1">
+            <div class="proj-img-wrap">
+              <img
+                class="proj-img"
+                src="images/tss.jpg"
+                alt="Two Sisters Spa"
+                loading="lazy"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'flex';
+                " />
+              <div class="proj-img-fallback" style="display: none">
+                Two Sisters
+              </div>
+            </div>
+            <div class="proj-body">
+              <span class="proj-url-tag">
+                <svg width="9" height="9" viewBox="0 0 9 9" fill="none">
+                  <path
+                    d="M1.5 7.5l6-6M7.5 7.5V1.5H1.5"
+                    stroke="currentColor"
+                    stroke-width="1.4"
+                    stroke-linecap="round" />
+                </svg>
+                twosistersspa.com
+              </span>
+              <p class="proj-name">Two Sisters Spa</p>
+              <p class="proj-desc">
+                Storefront improvements and UX cleanup. Navigation flow, product
+                page clarity, and mobile experience.
+              </p>
+              <div class="proj-tags">
+                <span class="ptag">Shopify</span><span class="ptag">UX</span
+                ><span class="ptag">Mobile</span>
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="https://happyhealthyhippieco.com"
+            target="_blank"
+            rel="noopener"
+            class="proj-card reveal rd2">
+            <div class="proj-img-wrap">
+              <img
+                class="proj-img"
+                src="images/hhh.jpg"
+                alt="Happy Healthy Hippie"
+                loading="lazy"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'flex';
+                " />
+              <div class="proj-img-fallback" style="display: none">HHH Co.</div>
+              <div class="proj-mob-badge">📱 Mobile-first</div>
+            </div>
+            <div class="proj-body">
+              <span class="proj-url-tag">
+                <svg width="9" height="9" viewBox="0 0 9 9" fill="none">
+                  <path
+                    d="M1.5 7.5l6-6M7.5 7.5V1.5H1.5"
+                    stroke="currentColor"
+                    stroke-width="1.4"
+                    stroke-linecap="round" />
+                </svg>
+                happyhealthyhippieco.com
+              </span>
+              <p class="proj-name">Happy Healthy Hippie</p>
+              <p class="proj-desc">
+                Landing page builds and ongoing maintenance. Performance
+                improvements and mobile layout overhaul.
+              </p>
+              <div class="proj-tags">
+                <span class="ptag">Shopify</span><span class="ptag">Replo</span
+                ><span class="ptag">Performance</span>
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="https://primelabs.org"
+            target="_blank"
+            rel="noopener"
+            class="proj-card reveal rd2">
+            <div class="proj-img-wrap">
+              <img
+                class="proj-img"
+                src="images/primelabs.jpg"
+                alt="Prime Labs"
+                loading="lazy"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'flex';
+                " />
+              <div class="proj-img-fallback" style="display: none">
+                Prime Labs
+              </div>
+            </div>
+            <div class="proj-body">
+              <span class="proj-url-tag">
+                <svg width="9" height="9" viewBox="0 0 9 9" fill="none">
+                  <path
+                    d="M1.5 7.5l6-6M7.5 7.5V1.5H1.5"
+                    stroke="currentColor"
+                    stroke-width="1.4"
+                    stroke-linecap="round" />
+                </svg>
+                primelabs.org
+              </span>
+              <p class="proj-name">Prime Labs</p>
+              <p class="proj-desc">
+                Storefront maintenance and landing page updates. Layout
+                improvements, performance, and keeping the site running
+                smoothly.
+              </p>
+              <div class="proj-tags">
+                <span class="ptag">Shopify</span
+                ><span class="ptag">Performance</span
+                ><span class="ptag">Maintenance</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════ MOBILE VIEWS ═══ -->
+    <section class="mobile-showcase-section sec">
+      <div class="wrap-lg">
+        <div class="reveal" style="text-align: center; margin-bottom: 16px">
+          <p class="section-label" style="margin-bottom: 12px">
+            Mobile Experience
+          </p>
+          <h2 class="sec-heading">Built for every screen.</h2>
+          <p
+            class="body-text"
+            style="
+              margin-top: 16px;
+              max-width: 480px;
+              margin-left: auto;
+              margin-right: auto;
+            ">
+            Mobile traffic is real and often majority. Every project I work on
+            gets the same attention on small screens as it does on desktop.
+          </p>
+        </div>
+        <div class="mobile-showcase-grid reveal">
+          <div>
+            <div class="mobile-frame">
+              <div class="mobile-frame-notch"></div>
+              <div class="mobile-frame-inner">
+                <img
+                  class="mobile-frame-img"
+                  src="images/m-fly.PNG"
+                  alt="Flyby mobile"
+                  loading="lazy"
+                  onerror="
+                    this.parentElement.style.background = 'var(--stone)'
+                  " />
+              </div>
+            </div>
+            <p class="mobile-frame-label">flyby.co</p>
+          </div>
+          <div>
+            <div class="mobile-frame">
+              <div class="mobile-frame-notch"></div>
+              <div class="mobile-frame-inner">
+                <img
+                  class="mobile-frame-img"
+                  src="images/m-hhh.PNG"
+                  alt="HHH mobile"
+                  loading="lazy"
+                  onerror="
+                    this.parentElement.style.background = 'var(--stone)'
+                  " />
+              </div>
+            </div>
+            <p class="mobile-frame-label">happyhealthyhippieco.com</p>
+          </div>
+          <div>
+            <div class="mobile-frame">
+              <div class="mobile-frame-notch"></div>
+              <div class="mobile-frame-inner">
+                <img
+                  class="mobile-frame-img"
+                  src="images/m-fox.PNG"
+                  alt="Foxy Bae mobile"
+                  loading="lazy"
+                  onerror="
+                    this.parentElement.style.background = 'var(--stone)'
+                  " />
+              </div>
+            </div>
+            <p class="mobile-frame-label">foxybae.com</p>
+          </div>
+          <div>
+            <div class="mobile-frame">
+              <div class="mobile-frame-notch"></div>
+              <div class="mobile-frame-inner">
+                <img
+                  class="mobile-frame-img"
+                  src="images/m-tss.PNG"
+                  alt="Two Sisters mobile"
+                  loading="lazy"
+                  onerror="
+                    this.parentElement.style.background = 'var(--stone)'
+                  " />
+              </div>
+            </div>
+            <p class="mobile-frame-label">twosistersspa.com</p>
+          </div>
+          <div>
+            <div class="mobile-frame">
+              <div class="mobile-frame-notch"></div>
+              <div class="mobile-frame-inner">
+                <img
+                  class="mobile-frame-img"
+                  src="images/m-viv.PNG"
+                  alt="MyVital mobile"
+                  loading="lazy"
+                  onerror="
+                    this.parentElement.style.background = 'var(--stone)'
+                  " />
+              </div>
+            </div>
+            <p class="mobile-frame-label">myvitalvitamins.com</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════ TESTIMONIALS ═══ -->
+    <section class="testimonials-section sec" id="testimonials">
+      <div class="wrap">
+        <div class="reveal" style="text-align: center; margin-bottom: 48px">
+          <p
+            class="section-label section-label--light"
+            style="margin-bottom: 12px">
+            Testimonials
+          </p>
+          <h2 class="sec-heading" style="color: #fff">
+            What clients and teammates say.
+          </h2>
+        </div>
+        <div class="grid-3">
+          <div class="tcard reveal">
+            <div class="stars">★★★★★</div>
+            <span class="tquote-open">"</span>
+            <p class="tquote-text">
+              I've hired a lot of freelancers, and every once in a while you
+              find one you genuinely want to keep to yourself. Harvey is one of
+              those. He did everything I asked — and then some. I was really
+              impressed, and I'm not easily impressed.
+            </p>
+            <div
+              style="
+                margin-top: 24px;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+              ">
+              <div
+                class="tavatar"
+                style="background: linear-gradient(135deg, #d4541a, #e87d50)">
+                U
+              </div>
+              <div>
+                <p class="tname">Upwork Client</p>
+                <p class="trole">Verified Upwork Review</p>
+              </div>
+            </div>
+          </div>
+          <div class="tcard reveal rd1">
+            <div class="stars">★★★★★</div>
+            <span class="tquote-open">"</span>
+            <p class="tquote-text">
+              Harvey is flexible, easy to work with, and consistently shows
+              strong initiative. He adapts quickly to changes and stays on top
+              of tasks — a reliable part of any team.
+            </p>
+            <div
+              style="
+                margin-top: 24px;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+              ">
+              <div
+                class="tavatar"
+                style="background: linear-gradient(135deg, #2a5c3f, #6aaf87)">
+                M
+              </div>
+              <div>
+                <p class="tname">Former Manager</p>
+                <p class="trole">Team Lead, Boosted Commerce</p>
+              </div>
+            </div>
+          </div>
+          <div class="tcard reveal rd2">
+            <div class="stars">★★★★★</div>
+            <span class="tquote-open">"</span>
+            <p class="tquote-text">
+              Harvey helped improve our website and made it much easier to
+              navigate. He understood what we were trying to achieve and
+              delivered. The overall experience of the site feels a lot better
+              now.
+            </p>
+            <div
+              style="
+                margin-top: 24px;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+              ">
+              <div
+                class="tavatar"
+                style="background: linear-gradient(135deg, #5a6fa8, #8ba3d4)">
+                S
+              </div>
+              <div>
+                <p class="tname">Startup Founder</p>
+                <p class="trole">Direct Client</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════ HOW I WORK ═══ -->
+    <section class="how-section sec" id="how">
+      <div class="wrap">
+        <div class="reveal" style="text-align: center; margin-bottom: 48px">
+          <p class="section-label" style="margin-bottom: 12px">How I Work</p>
+          <h2 class="sec-heading">Simple process.<br />No surprises.</h2>
+        </div>
+        <div class="grid-4">
+          <div class="step-card reveal">
+            <div class="step-num">1</div>
+            <h3 class="step-title">Understand first</h3>
+            <p class="step-body">
+              Business context, goals, and what's actually not working — before
+              writing a single line of code.
+            </p>
+          </div>
+          <div class="step-card reveal rd1">
+            <div class="step-num">2</div>
+            <h3 class="step-title">Find the real issue</h3>
+            <p class="step-body">
+              I look at structure, flow, and friction. Sometimes the problem
+              isn't where you think it is — I'll tell you what I actually see.
+            </p>
+          </div>
+          <div class="step-card reveal rd2">
+            <div class="step-num">3</div>
+            <h3 class="step-title">Build and iterate</h3>
+            <p class="step-body">
+              Small, focused improvements over big rewrites. Faster to ship,
+              easier to test, less risk to your live site.
+            </p>
+          </div>
+          <div class="step-card reveal rd3">
+            <div class="step-num">4</div>
+            <h3 class="step-title">Stay in touch</h3>
+            <p class="step-body">
+              Clear updates, no ghosting. I flag problems early so you're never
+              left wondering what's happening.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ═══════════════════════════════ TECH ═══ -->
+    <section class="sec-sm">
+      <div class="wrap">
+        <div class="grid-2" style="align-items: center" id="tech-grid">
+          <div class="reveal">
+            <p class="section-label" style="margin-bottom: 12px">Tech Stack</p>
+            <h2 class="sec-heading" style="font-size: 32px">
+              Tools I use<br />to get it done.
+            </h2>
+          </div>
+          <div
+            class="reveal rd1"
+            style="display: flex; flex-wrap: wrap; gap: 8px">
+            <span class="tech-pill"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="256"
+                height="292"
+                viewBox="0 0 256 292">
+                <path
+                  fill="#95bf46"
+                  d="M223.774 57.34c-.201-1.46-1.48-2.268-2.537-2.357a19614 19614 0 0 0-23.383-1.743s-15.507-15.395-17.209-17.099c-1.703-1.703-5.029-1.185-6.32-.805c-.19.056-3.388 1.043-8.678 2.68c-5.18-14.906-14.322-28.604-30.405-28.604c-.444 0-.901.018-1.358.044C129.31 3.407 123.644.779 118.75.779c-37.465 0-55.364 46.835-60.976 70.635c-14.558 4.511-24.9 7.718-26.221 8.133c-8.126 2.549-8.383 2.805-9.45 10.462C21.3 95.806.038 260.235.038 260.235l165.678 31.042l89.77-19.42S223.973 58.8 223.775 57.34M156.49 40.848l-14.019 4.339c.005-.988.01-1.96.01-3.023c0-9.264-1.286-16.723-3.349-22.636c8.287 1.04 13.806 10.469 17.358 21.32m-27.638-19.483c2.304 5.773 3.802 14.058 3.802 25.238c0 .572-.005 1.095-.01 1.624c-9.117 2.824-19.024 5.89-28.953 8.966c5.575-21.516 16.025-31.908 25.161-35.828m-11.131-10.537c1.617 0 3.246.549 4.805 1.622c-12.007 5.65-24.877 19.88-30.312 48.297l-22.886 7.088C75.694 46.16 90.81 10.828 117.72 10.828" />
+                <path
+                  fill="#5e8e3e"
+                  d="M221.237 54.983a19614 19614 0 0 0-23.383-1.743s-15.507-15.395-17.209-17.099c-.637-.634-1.496-.959-2.394-1.099l-12.527 256.233l89.762-19.418S223.972 58.8 223.774 57.34c-.201-1.46-1.48-2.268-2.537-2.357" />
+                <path
+                  fill="#fff"
+                  d="m135.242 104.585l-11.069 32.926s-9.698-5.176-21.586-5.176c-17.428 0-18.305 10.937-18.305 13.693c0 15.038 39.2 20.8 39.2 56.024c0 27.713-17.577 45.558-41.277 45.558c-28.44 0-42.984-17.7-42.984-17.7l7.615-25.16s14.95 12.835 27.565 12.835c8.243 0 11.596-6.49 11.596-11.232c0-19.616-32.16-20.491-32.16-52.724c0-27.129 19.472-53.382 58.778-53.382c15.145 0 22.627 4.338 22.627 4.338" />
+              </svg>
+              <span>Shopify</span></span
+            >
+            <span class="tech-pill"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16">
+                <path
+                  fill="none"
+                  stroke="#8aadf4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.5 4.49c-.594 0-1.183-.084-1.7-.365a4.6 4.6 0 0 0-4.434 0c-.93.52-2.08.522-3.013.005a4.2 4.2 0 0 0-2.21-.576a4.2 4.2 0 0 0-2.24.578A2.8 2.8 0 0 1 .5 4.514m15 3.942c-.594 0-1.183-.085-1.7-.366a4.6 4.6 0 0 0-4.434 0c-.93.52-2.08.522-3.013.005a4.2 4.2 0 0 0-2.21-.576a4.2 4.2 0 0 0-2.24.578A2.8 2.8 0 0 1 .5 8.479m15 3.984c-.594 0-1.183-.084-1.7-.366a4.6 4.6 0 0 0-4.434 0c-.93.52-2.08.522-3.013.005a4.2 4.2 0 0 0-2.21-.575a4.2 4.2 0 0 0-2.24.577a2.8 2.8 0 0 1-1.403.382"
+                  stroke-width="1" />
+              </svg>
+              <span>Liquid</span></span
+            >
+            <span class="tech-pill">⚡ <span>Replo</span></span>
+            <span class="tech-pill">&lt;/&gt; <span>HTML &amp; CSS</span></span>
+            <span class="tech-pill">
+              <span
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="256"
+                  height="256"
+                  viewBox="0 0 256 256">
+                  <g fill="none">
+                    <rect width="256" height="256" fill="#f0db4f" rx="60" />
+                    <path
+                      fill="#323330"
+                      d="m67.312 213.932l19.59-11.856c3.78 6.701 7.218 12.371 15.465 12.371c7.905 0 12.889-3.092 12.889-15.12v-81.798h24.058v82.138c0 24.917-14.606 36.259-35.916 36.259c-19.245 0-30.416-9.967-36.087-21.996m85.07-2.576l19.588-11.341c5.157 8.421 11.859 14.607 23.715 14.607c9.969 0 16.325-4.984 16.325-11.858c0-8.248-6.53-11.17-17.528-15.98l-6.013-2.579c-17.357-7.388-28.871-16.668-28.871-36.258c0-18.044 13.748-31.792 35.229-31.792c15.294 0 26.292 5.328 34.196 19.247l-18.731 12.029c-4.125-7.389-8.591-10.31-15.465-10.31c-7.046 0-11.514 4.468-11.514 10.31c0 7.217 4.468 10.139 14.778 14.608l6.014 2.577c20.449 8.765 31.963 17.699 31.963 37.804c0 21.654-17.012 33.51-39.867 33.51c-22.339 0-36.774-10.654-43.819-24.574" />
+                  </g></svg></span
+            ></span>
+            <span class="tech-pill"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="256"
+                height="256"
+                viewBox="0 0 256 256">
+                <g fill="none">
+                  <rect width="256" height="256" fill="#f4f2ed" rx="60" />
+                  <path
+                    fill="url(#SVGdgekOdZf)"
+                    fill-rule="evenodd"
+                    d="M83 110q9-36 45-36c36 0 40.5 27 58.5 31.5q18 4.502 31.5-13.5q-9 36-45 36c-36 0-40.5-27-58.5-31.5Q96.5 92 83 110m-45 54q9-36 45-36c36 0 40.5 27 58.5 31.5q18 4.502 31.5-13.5q-9 36-45 36c-36 0-40.5-27-58.5-31.5q-18-4.502-31.5 13.5"
+                    clip-rule="evenodd" />
+                  <defs>
+                    <linearGradient
+                      id="SVGdgekOdZf"
+                      x1="86.5"
+                      x2="163.5"
+                      y1="74"
+                      y2="185.5"
+                      gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#32b1c1" />
+                      <stop offset="1" stop-color="#14c6b7" />
+                    </linearGradient>
+                  </defs>
+                </g>
+              </svg>
+              <span>Tailwind CSS</span></span
+            >
+            <span class="tech-pill"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="256"
+                height="256"
+                viewBox="0 0 256 256">
+                <g fill="none">
+                  <rect
+                    width="256"
+                    height="256"
+                    fill="url(#SVGtPi1tbIZ)"
+                    rx="60" />
+                  <g filter="url(#SVGdbVvXblu)">
+                    <path
+                      fill="url(#SVG5Sg75HMc)"
+                      d="M131.97 196.157c29.676 0 47.559-14.531 47.559-38.497c0-18.117-12.759-31.232-31.706-33.309v-.754c13.92-2.265 24.843-15.192 24.843-29.628c0-20.57-16.239-33.969-40.986-33.969H76v136.157zM97.653 77.267h28.807c15.66 0 24.553 6.983 24.553 19.627c0 13.493-10.343 21.041-29.096 21.041H97.653zm0 101.623v-44.819h28.613c20.494 0 31.127 7.548 31.127 22.268c0 14.719-10.343 22.551-29.87 22.551z" />
+                    <path
+                      stroke="#fff"
+                      stroke-width="2"
+                      d="M131.97 196.157c29.676 0 47.559-14.531 47.559-38.497c0-18.117-12.759-31.232-31.706-33.309v-.754c13.92-2.265 24.843-15.192 24.843-29.628c0-20.57-16.239-33.969-40.986-33.969H76v136.157zM97.653 77.267h28.807c15.66 0 24.553 6.983 24.553 19.627c0 13.493-10.343 21.041-29.096 21.041H97.653zm0 101.623v-44.819h28.613c20.494 0 31.127 7.548 31.127 22.268c0 14.719-10.343 22.551-29.87 22.551z" />
+                  </g>
+                  <defs>
+                    <linearGradient
+                      id="SVGtPi1tbIZ"
+                      x1="0"
+                      x2="256"
+                      y1="0"
+                      y2="256"
+                      gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#9013fe" />
+                      <stop offset="1" stop-color="#6b11f4" />
+                    </linearGradient>
+                    <linearGradient
+                      id="SVG5Sg75HMc"
+                      x1="85.793"
+                      x2="148.541"
+                      y1="68.962"
+                      y2="175.084"
+                      gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#fff" />
+                      <stop offset="1" stop-color="#f1e5fc" />
+                    </linearGradient>
+                    <filter
+                      id="SVGdbVvXblu"
+                      width="137.529"
+                      height="170.157"
+                      x="59"
+                      y="47"
+                      color-interpolation-filters="sRGB"
+                      filterUnits="userSpaceOnUse">
+                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                      <feColorMatrix
+                        in="SourceAlpha"
+                        result="hardAlpha"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+                      <feOffset dy="4" />
+                      <feGaussianBlur stdDeviation="8" />
+                      <feColorMatrix
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0" />
+                      <feBlend
+                        in2="BackgroundImageFix"
+                        result="effect1_dropShadow_158_100" />
+                      <feBlend
+                        in="SourceGraphic"
+                        in2="effect1_dropShadow_158_100"
+                        result="shape" />
+                    </filter>
+                  </defs>
+                </g>
+              </svg>
+              <span>Bootstrap</span></span
+            >
+            <span class="tech-pill"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="256"
+                height="256"
+                viewBox="0 0 256 256">
+                <g fill="none">
+                  <rect width="256" height="256" fill="#f4f2ed" rx="60" />
+                  <path
+                    fill="#e23237"
+                    d="M34.25 61.125L127.325 28l95.525 32.612L207.412 183.7L127.325 228l-78.787-43.725z" />
+                  <path
+                    fill="#b52e31"
+                    d="M222.85 60.613L127.325 28v200l80.087-44.3z" />
+                  <path
+                    fill="#fff"
+                    d="m127.469 51.375l-58 129l21.644-.438l11.687-29.149h51.875l12.7 29.375l20.637.437zm.143 41.412l19.625 40.982H110.5l17.169-40.982z" />
+                </g>
+              </svg>
+              <span>Angular</span></span
+            >
+            <span class="tech-pill"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="128"
+                height="128"
+                viewBox="0 0 128 128">
+                <path
+                  fill="#5fa04e"
+                  d="M114.313 55.254a.26.26 0 0 0-.145.044l-2.346 1.37a.3.3 0 0 0-.142.26v2.74c0 .116.055.204.142.262l2.346 1.368a.26.26 0 0 0 .29 0l2.342-1.368a.31.31 0 0 0 .145-.263V56.93a.3.3 0 0 0-.145-.26l-2.343-1.371a.26.26 0 0 0-.144-.044zM63.22 71.638c-.427 0-.852.104-1.214.308l-11.549 6.727a2.46 2.46 0 0 0-1.214 2.124V94.22c0 .874.462 1.69 1.214 2.128l3.04 1.746c1.476.728 1.997.726 2.662.726c2.17 0 3.415-1.339 3.415-3.64V81.935a.356.356 0 0 0-.348-.351h-1.474a.356.356 0 0 0-.35.351v13.248c0 1.019-1.069 2.04-2.776 1.167l-3.155-1.835c-.116-.058-.175-.206-.175-.322V80.767c0-.116.059-.26.175-.319l11.545-6.697c.087-.058.233-.058.349 0l11.548 6.697c.115.059.172.174.172.32v13.424c0 .145-.057.264-.172.322l-11.548 6.727c-.087.058-.233.058-.349 0l-2.951-1.779c-.087-.058-.203-.087-.29-.029c-.81.466-.952.527-1.734.789c-.174.058-.463.173.115.493l3.85 2.302c.376.203.78.319 1.214.319s.867-.115 1.214-.26l11.549-6.727a2.46 2.46 0 0 0 1.214-2.128V80.797c0-.874-.462-1.687-1.214-2.124l-11.549-6.727a2.5 2.5 0 0 0-1.214-.308m18.03 6.13a2.236 2.236 0 0 0-2.227 2.243a2.236 2.236 0 0 0 2.227 2.242c1.217 0 2.228-1.019 2.228-2.242a2.254 2.254 0 0 0-2.228-2.242zm-.03.379a1.86 1.86 0 0 1 1.883 1.864c0 1.02-.84 1.894-1.882 1.894c-1.012 0-1.852-.846-1.852-1.894s.869-1.864 1.852-1.864zm-.809.611v2.562h.494v-1.016h.434c.174 0 .231.058.26.203c0 .03.086.67.086.786h.52c-.058-.116-.087-.466-.116-.67c-.028-.32-.056-.553-.404-.582c.174-.059.463-.146.463-.612c0-.67-.58-.67-.868-.67zm.435.408h.404c.146 0 .376 0 .376.349c0 .116-.056.351-.376.351h-.405zm-14.47 2.01c-3.3 0-5.268 1.398-5.268 3.757c0 2.534 1.968 3.23 5.123 3.551c3.79.379 4.08.933 4.08 1.69c0 1.31-1.044 1.864-3.475 1.864c-3.068 0-3.733-.758-3.965-2.301c0-.175-.142-.29-.316-.29H61.05a.35.35 0 0 0-.346.349c0 1.98 1.041 4.31 6.107 4.31c3.645 0 5.758-1.458 5.758-4.02c0-2.505-1.68-3.174-5.238-3.64c-3.59-.466-3.965-.728-3.965-1.572c0-.699.318-1.63 2.98-1.63c2.373 0 3.269.525 3.617 2.126a.34.34 0 0 0 .319.26h1.533c.088 0 .175-.057.234-.115a.5.5 0 0 0 .085-.263c-.231-2.795-2.053-4.077-5.758-4.077z" />
+                <path
+                  fill="#333"
+                  d="M86.072 24.664a.7.7 0 0 0-.352.089a.76.76 0 0 0-.375.638V44.32c0 .174-.09.35-.263.466a.55.55 0 0 1-.52 0l-3.066-1.775a1.49 1.49 0 0 0-1.478 0L67.75 50.146a1.48 1.48 0 0 0-.753 1.279v14.24c0 .524.29 1.02.753 1.282l12.27 7.135a1.49 1.49 0 0 0 1.477 0l12.269-7.135c.463-.262.753-.758.753-1.282V30.168c0-.553-.29-1.05-.753-1.311l-7.32-4.104a.84.84 0 0 0-.373-.089zM13.687 42.43c-.231 0-.462.084-.664.2L.753 49.739A1.49 1.49 0 0 0 0 51.047l.03 19.102c0 .263.143.525.375.642a.66.66 0 0 0 .724 0l7.294-4.193c.463-.262.75-.758.75-1.282v-8.94c0-.524.29-1.02.754-1.282l3.096-1.805c.231-.146.493-.204.753-.204s.521.058.724.204l3.096 1.805c.463.262.753.758.753 1.282v8.94c0 .524.288 1.02.75 1.282l7.236 4.193a.7.7 0 0 0 .753 0a.72.72 0 0 0 .376-.642V51.047c0-.524-.29-1.02-.754-1.283L14.47 42.63a1.8 1.8 0 0 0-.664-.201Zm100.667.21c-.253 0-.504.066-.736.198l-12.272 7.131c-.463.262-.75.758-.75 1.283v14.24c0 .524.287 1.02.75 1.282l12.184 6.987a1.43 1.43 0 0 0 1.447 0l7.38-4.133a.72.72 0 0 0 .375-.642a.72.72 0 0 0-.375-.64L110.03 61.21a.76.76 0 0 1-.375-.641v-4.456a.72.72 0 0 1 .375-.64l3.85-2.214a.7.7 0 0 1 .753 0l3.846 2.213a.76.76 0 0 1 .378.641v3.495c0 .263.144.525.375.641a.7.7 0 0 0 .754 0l7.291-4.28a1.46 1.46 0 0 0 .724-1.283v-3.465c0-.524-.29-1.017-.724-1.28l-12.184-7.104a1.5 1.5 0 0 0-.738-.198zM80.757 53.274c.065 0 .131.015.19.045l4.194 2.446c.116.058.175.202.175.319v4.892c0 .146-.059.264-.175.322l-4.195 2.446a.43.43 0 0 1-.378 0l-4.195-2.446c-.116-.058-.175-.205-.175-.322v-4.892c0-.146.06-.261.175-.32l4.195-2.445a.4.4 0 0 1 .19-.045z" />
+                <path
+                  fill="url(#SVGy79yJe0C)"
+                  d="M47.982 42.893a1.48 1.48 0 0 0-1.476 0L34.322 49.97a1.46 1.46 0 0 0-.724 1.281v14.181c0 .525.29 1.02.724 1.282l12.184 7.076a1.48 1.48 0 0 0 1.476 0l12.183-7.076c.463-.262.724-.757.724-1.282V51.251c0-.524-.29-1.02-.724-1.281z" />
+                <path
+                  fill="url(#SVGtAYT7pLD)"
+                  d="m60.194 49.97l-12.241-7.077a2 2 0 0 0-.376-.145L33.859 66.364c.116.146.26.262.405.35l12.242 7.076c.347.204.752.262 1.128.145l12.879-23.703a.9.9 0 0 0-.319-.262" />
+                <path
+                  fill="url(#SVGeJEZ4bvg)"
+                  d="M60.194 66.713c.348-.204.608-.553.724-.932l-13.4-23.063c-.346-.058-.723-.029-1.041.175L34.322 49.94l13.11 24.053c.173-.029.376-.087.55-.175z" />
+                <defs>
+                  <linearGradient
+                    id="SVGy79yJe0C"
+                    x1="34.513"
+                    x2="27.157"
+                    y1="15.535"
+                    y2="30.448"
+                    gradientTransform="translate(0 24.664)scale(1.51263)"
+                    gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#3f873f" />
+                    <stop offset=".33" stop-color="#3f8b3d" />
+                    <stop offset=".637" stop-color="#3e9638" />
+                    <stop offset=".934" stop-color="#3da92e" />
+                    <stop offset="1" stop-color="#3dae2b" />
+                  </linearGradient>
+                  <linearGradient
+                    id="SVGtAYT7pLD"
+                    x1="30.009"
+                    x2="50.533"
+                    y1="23.359"
+                    y2="8.288"
+                    gradientTransform="translate(0 24.664)scale(1.51263)"
+                    gradientUnits="userSpaceOnUse">
+                    <stop offset=".138" stop-color="#3f873f" />
+                    <stop offset=".402" stop-color="#52a044" />
+                    <stop offset=".713" stop-color="#64b749" />
+                    <stop offset=".908" stop-color="#6abf4b" />
+                  </linearGradient>
+                  <linearGradient
+                    id="SVGeJEZ4bvg"
+                    x1="21.917"
+                    x2="40.555"
+                    y1="22.261"
+                    y2="22.261"
+                    gradientTransform="translate(0 24.664)scale(1.51263)"
+                    gradientUnits="userSpaceOnUse">
+                    <stop offset=".092" stop-color="#6abf4b" />
+                    <stop offset=".287" stop-color="#64b749" />
+                    <stop offset=".598" stop-color="#52a044" />
+                    <stop offset=".862" stop-color="#3f873f" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              <span>Node.js</span></span
+            >
+            <span class="tech-pill"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="256"
+                height="256"
+                viewBox="0 0 256 256">
+                <g fill="none">
+                  <rect width="256" height="256" fill="#023430" rx="60" />
+                  <path
+                    fill="#10aa50"
+                    d="M171.173 107.591c-10.537-46.481-32.497-58.855-38.099-67.602A99 99 0 0 1 126.949 28c-.296 4.13-.84 6.73-4.35 9.862c-7.047 6.283-36.977 30.673-39.496 83.486c-2.347 49.242 36.2 79.605 41.292 82.744c3.916 1.927 8.685.041 11.012-1.728c18.581-12.752 43.969-46.75 35.786-94.773" />
+                  <path
+                    fill="#b8c4c2"
+                    d="M128.545 177.871c-.97 12.188-1.665 19.27-4.129 26.235c0 0 1.617 11.603 2.753 23.894h4.019a224 224 0 0 1 4.384-25.732c-5.203-2.56-6.827-13.702-7.027-24.397" />
+                  <path
+                    fill="#12924f"
+                    d="M135.565 202.275c-5.258-2.429-6.779-13.806-7.013-24.404a500 500 0 0 0 1.136-52.545c-.276-9.194.13-85.158-2.265-96.28a92 92 0 0 0 5.651 10.936c5.602 8.754 27.569 21.128 38.099 67.609c8.203 47.941-17.047 81.849-35.608 94.684" />
+                </g>
+              </svg>
+              <span>MongoDB</span></span
+            >
+            <span class="tech-pill"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M3.42 12c0-1.24.27-2.42.74-3.5l4.1 11.22A8.56 8.56 0 0 1 3.42 12m14.37-.43c0 .73-.29 1.58-.65 2.77l-.86 2.86l-3.1-9.2l.98-.1c.47-.06.41-.74-.05-.71c0 0-1.39.11-2.29.11l-2.26-.11c-.46-.03-.51.68-.06.71l.91.1l1.34 3.64l-1.88 5.63L6.74 8l.99-.1c.46-.06.4-.74-.06-.71c0 0-1.39.11-2.29.11l-.55-.01C6.37 4.96 9 3.42 12 3.42c2.23 0 4.27.86 5.79 2.25h-.11c-.84 0-1.44.73-1.44 1.52c0 .71.41 1.31.84 2.01c.33.57.71 1.3.71 2.37m-5.64 1.18l2.64 7.22l.06.12c-.89.32-1.85.49-2.85.49c-.84 0-1.65-.12-2.42-.35zm7.38-4.87A8.55 8.55 0 0 1 20.58 12c0 3.16-1.72 5.93-4.27 7.41l2.62-7.57c.49-1.22.66-2.2.66-3.07zM12 2a10 10 0 0 1 10 10a10 10 0 0 1-10 10A10 10 0 0 1 2 12A10 10 0 0 1 12 2m0 19.54c5.26 0 9.54-4.28 9.54-9.54S17.26 2.46 12 2.46S2.46 6.74 2.46 12s4.28 9.54 9.54 9.54" />
+              </svg>
+              WordPress</span
+            >
+            <span class="tech-pill"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="128"
+                height="128"
+                viewBox="0 0 128 128">
+                <path
+                  d="M12.1 102.4H9.8c-2.9 0-5.2-2.3-5.2-5.2c0-3 2.4-5.4 5.4-5.4h2.1v-4.2H9.3c-5.1 0-9.3 4.2-9.3 9.3c0 5.7 4.6 10.3 10.3 10.3h1.8zm103.8 0h-2.3c-2.9 0-5.2-2.3-5.2-5.2c0-3 2.4-5.4 5.4-5.4h2.1v-4.2H113c-5.1 0-9.3 4.2-9.3 9.3c0 5.7 4.6 10.3 10.3 10.3h1.8v-4.8zM22.1 87.6c-4.5 0-8.1 4.4-8.1 9.8s3.6 9.8 8.1 9.8s8.1-4.4 8.1-9.8s-3.6-9.8-8.1-9.8m0 15.9c-2 0-3.5-2.7-3.5-6s1.6-6 3.5-6c2 0 3.5 2.7 3.5 6s-1.6 6-3.5 6m8.1 3.7l3.1-19.6h6.5l1.9 9.8l2.5-9.8h6l2.9 19.6h-5l-1.6-13.3l-2.7 13.3h-3.4l-3.7-13.1l-1.7 13.1zm24 0l3.1-19.6h6.5l1.8 9.8l2.5-9.8h6.1l2.9 19.6h-5l-1.7-13.3l-2.7 13.3h-3.3l-3.8-13.1l-1.6 13.1zm23.7 0V87.6h10.2v3.8H83v4.2h4.5v3.6h-5.1v3.8h5.7v4.2zm39.9 0V87.6H128v3.8h-5.1v4.2h4.5v3.6h-5.1v3.8h5.7v4.2z" />
+                <path
+                  d="M100 98.1c1.6 0 3-1.3 3-3v-1.8c0-3.2-2.6-5.7-5.7-5.7h-7.4v19.6h4.6V98l5 9.2h5.1zm-3.9-1.7h-1.7v-4.8h1.9c1.3 0 2.3 1 2.3 2.3c-.1 1.4-1.2 2.5-2.5 2.5" />
+                <path
+                  fill="#7f54b3"
+                  d="M104 71.5H24.3c-6.4 0-11.7-5.2-11.7-11.7V32.4c0-6.4 5.2-11.7 11.7-11.7H104c6.4 0 11.7 5.2 11.7 11.7v27.4c0 6.5-5.3 11.7-11.7 11.7" />
+                <path
+                  fill="#fff"
+                  d="M23.8 61.6s2.3 9.4 6.9 3.1s9-16.2 9-16.2s.3-2.5 1.6 3s6.9 12.8 6.9 12.8s5.1 6.3 7.2-.3c-.8-8.8 2.3-24.8 5.4-32.5c1.3-6.8-5.9-4.9-6.5-3.2S49.1 40 48.8 50.7c0 0-3.8-10.2-4.1-14c-.3-3.7-4.2-4.7-6.5-1.1S29 53.1 29 53.1l-4.4-22.7s-4.4-5.8-7 1.3c0 0 4.6 27.9 6.2 29.9m58.9-24.9c-6.9-11.4-17-2.8-17-2.8s-7.7 8.9-4.2 21c5.6 12 13.3 6.6 15.4 5.7c2.1-1 11.3-11.4 5.8-23.9m-5.2 10c0 4.8-3.9 9.2-7.2 8.2c-1.8-1-2.9-3.9-2.9-8.6c1.6-7.8 5.2-8.8 7-8.6c3.4 1.8 3.2 5.9 3.1 9m30.8-10c-6.9-11.4-17-2.8-17-2.8s-7.7 8.9-4.2 21c5.6 12 13.3 6.6 15.4 5.7c2.2-1 11.4-11.4 5.8-23.9m-5.2 10c0 4.8-3.9 9.2-7.2 8.2c-1.8-1-2.9-3.9-2.9-8.6c1.6-7.8 5.2-8.8 7-8.6c3.4 1.8 3.3 5.9 3.1 9" />
+                <path
+                  fill="#7f54b3"
+                  d="M62 71.5L79.9 82l-3.7-10.5l-10.3-2.9z" />
+              </svg>
+              <span>WooCommerce</span></span
+            >
+            <span class="tech-pill"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="256"
+                height="256"
+                viewBox="0 0 256 256">
+                <g fill="none">
+                  <rect width="256" height="256" fill="#f4f2ed" rx="60" />
+                  <g clip-path="url(#SVGXwgIudex)">
+                    <path
+                      fill="#0acf83"
+                      d="M94.347 228c18.4 0 33.333-14.933 33.333-33.333v-33.334H94.347c-18.4 0-33.334 14.934-33.334 33.334S75.947 228 94.347 228" />
+                    <path
+                      fill="#a259ff"
+                      d="M61.013 128c0-18.4 14.934-33.333 33.334-33.333h33.333v66.666H94.347c-18.4 0-33.334-14.933-33.334-33.333" />
+                    <path
+                      fill="#f24e1e"
+                      d="M61.013 61.333C61.013 42.933 75.947 28 94.347 28h33.333v66.667H94.347c-18.4 0-33.334-14.934-33.334-33.334" />
+                    <path
+                      fill="#ff7262"
+                      d="M127.68 28h33.333c18.4 0 33.334 14.933 33.334 33.333s-14.934 33.334-33.334 33.334H127.68z" />
+                    <path
+                      fill="#1abcfe"
+                      d="M194.347 128c0 18.4-14.934 33.333-33.334 33.333S127.68 146.4 127.68 128s14.933-33.333 33.333-33.333S194.347 109.6 194.347 128" />
+                  </g>
+                  <defs>
+                    <clipPath id="SVGXwgIudex">
+                      <path fill="#fff" d="M61 28h133.36v200H61z" />
+                    </clipPath>
+                  </defs>
+                </g>
+              </svg>
+              <span>Figma</span></span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════ CONTACT ═══ -->
+    <section class="contact-section sec" id="contact">
+      <div class="wrap">
+        <div class="grid-2" style="align-items: start" id="contact-grid">
+          <div class="reveal">
+            <p
+              class="section-label section-label--light"
+              style="margin-bottom: 16px">
+              Get In Touch
+            </p>
+            <h2 class="sec-heading" style="color: #fff; margin-bottom: 20px">
+              Let's work on<br />something real.
+            </h2>
+            <p
+              class="body-text"
+              style="
+                color: rgba(255, 255, 255, 0.52);
+                max-width: 370px;
+                margin-bottom: 32px;
+              ">
+              Open to freelance and long-term projects. Whether you need a full
+              build, a specific improvement, or someone to look at your site and
+              tell you what's wrong — reach out.
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 16px">
+              <a
+                href="mailto:ignacio.harveyjohn@gmail.com"
+                class="contact-info-link">
+                <span class="contact-info-icon">📧</span>
+                ignacio.harveyjohn@gmail.com
+              </a>
+              <a
+                href="https://upwork.com"
+                target="_blank"
+                rel="noopener"
+                class="contact-info-link">
+                <span class="contact-info-icon">💼</span> Upwork Profile
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener"
+                class="contact-info-link">
+                <span class="contact-info-icon">🔗</span> LinkedIn
+              </a>
+            </div>
+          </div>
+
+          <div class="reveal rd1">
+            <div class="contact-form-wrap">
+              <h3 class="form-title">Send a message</h3>
+              <form id="contactForm" novalidate>
+                <div class="form-row">
+                  <label class="form-label" for="fname">Your Name</label>
+                  <input
+                    class="form-input"
+                    type="text"
+                    id="fname"
+                    name="name"
+                    placeholder="Jane Smith"
+                    required />
+                </div>
+                <div class="form-row">
+                  <label class="form-label" for="femail">Email Address</label>
+                  <input
+                    class="form-input"
+                    type="email"
+                    id="femail"
+                    name="email"
+                    placeholder="jane@company.com"
+                    required />
+                </div>
+                <div class="form-row">
+                  <label class="form-label" for="fmsg">What do you need?</label>
+                  <textarea
+                    class="form-textarea"
+                    id="fmsg"
+                    name="message"
+                    rows="4"
+                    placeholder="Tell me about your project — what you're working on, what's not working, or what you need built."
+                    required></textarea>
+                </div>
+                <button type="submit" class="btn btn-form" id="submitBtn">
+                  Send Message
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path
+                      d="M2 8h12M10 4l4 4-4 4"
+                      stroke="currentColor"
+                      stroke-width="1.75"
+                      stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </button>
+              </form>
+              <div class="form-status" id="formStatus"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════ FOOTER ═══ -->
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Harvey John Ignacio. All rights reserved.</p>
-        </div>
+      <span class="footer-name">Harvey Ignacio</span>
+      <span class="footer-meta"
+        >Web Developer &amp; Designer · Philippines</span
+      >
+      <span class="footer-copy">© 2026</span>
     </footer>
 
-    <script src="script.js"></script>
-</body>
+    <!-- ═══════════════════════════════ SCRIPTS ═══ -->
+    <script>
+      /* ── Nav scroll ── */
+      const navbar = document.getElementById("navbar");
+      window.addEventListener(
+        "scroll",
+        () => {
+          navbar.classList.toggle("stuck", window.scrollY > 60);
+        },
+        { passive: true },
+      );
+
+      /* ── Burger ── */
+      const burger = document.getElementById("burger");
+      const navLinks = document.getElementById("navLinks");
+      burger.addEventListener("click", () => navLinks.classList.toggle("open"));
+      navLinks
+        .querySelectorAll("a")
+        .forEach((a) =>
+          a.addEventListener("click", () => navLinks.classList.remove("open")),
+        );
+
+      /* ── Scroll reveal ── */
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("on");
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: "0px 0px -24px 0px" },
+      );
+      document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+      /* ── Responsive grids ── */
+      function fixLayouts() {
+        const mob = window.innerWidth < 768;
+        document.querySelectorAll("#tech-grid, #contact-grid").forEach((g) => {
+          g.style.gridTemplateColumns = mob ? "1fr" : "1fr 1fr";
+        });
+      }
+      fixLayouts();
+      window.addEventListener("resize", fixLayouts);
+
+      /* ── Contact form → Formspree ── */
+      const form = document.getElementById("contactForm");
+      const submitBtn = document.getElementById("submitBtn");
+      const formStatus = document.getElementById("formStatus");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById("fname").value.trim();
+        const email = document.getElementById("femail").value.trim();
+        const message = document.getElementById("fmsg").value.trim();
+
+        if (!name || !email || !message) {
+          formStatus.className = "form-status error";
+          formStatus.textContent = "Please fill in all fields before sending.";
+          return;
+        }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          formStatus.className = "form-status error";
+          formStatus.textContent = "Please enter a valid email address.";
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending…";
+        formStatus.className = "form-status";
+        formStatus.textContent = "";
+
+        try {
+          /* Using Formspree — sign up at formspree.io and replace YOUR_FORM_ID */
+          const res = await fetch("https://formspree.io/f/xeoqkojd", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: JSON.stringify({ name, email, message }),
+          });
+
+          if (res.ok) {
+            formStatus.className = "form-status success";
+            formStatus.textContent =
+              "✓ Message sent! I'll get back to you soon.";
+            form.reset();
+          } else {
+            const data = await res.json();
+            throw new Error(
+              data?.errors?.map((err) => err.message).join(", ") ||
+                "Server error",
+            );
+          }
+        } catch (err) {
+          formStatus.className = "form-status error";
+          formStatus.textContent =
+            "Something went wrong. Please email me directly at ignacio.harveyjohn@gmail.com";
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML =
+            'Send Message <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8h12M10 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+        }
+      });
+    </script>
+  </body>
 </html>
