@@ -1,7 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "Bash(git -C /Users/harvey/Documents/Portfolio/portfolio show HEAD:index.html)",
+      "Bash(git -C /Users/harvey/Documents/Portfolio/portfolio log --oneline)",
+      "Bash(git -C /Users/harvey/Documents/Portfolio/portfolio show 475bf6d:index.html)"
     ]
   }
 }
